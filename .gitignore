@@ -1,0 +1,17 @@
+# Local Claude Code settings. Machine-specific (enabled MCP servers, local
+# permissions) and must not propagate to projects copied from this template.
+.claude/settings.local.json
+
+# Application dependencies, build output and local tooling.
+node_modules/
+.next/
+out/
+coverage/
+*.tsbuildinfo
+next-env.d.ts
+*.log
+.env*
+!.env.example
+.vercel/
+work/
+outputs/

@@ -1,0 +1,72 @@
+name: Security check (reusable)
+
+# This repository contains static design references and has no dependency
+# manifest to audit, so scan tracked files for common credential formats.
+#
+# Reusable workflow: it is called by another workflow, never triggered directly.
+# Called by: .github/workflows/pr-checks.yml
+#
+# The release-metadata field `security_review_status` is set from this job's
+# conclusion together with the AI review. See docs/RELEASE_METADATA.md.
+
+on:
+  workflow_call:
+    inputs:
+      runner:
+        description: Runner label to execute on.
+        type: string
+        default: ubuntu-latest
+      working-directory:
+        description: Directory to run the security commands in.
+        type: string
+        default: "."
+      ref:
+        description: Git ref or SHA to check out. Defaults to the caller's ref.
+        type: string
+        default: ""
+
+# Least privilege: deny everything here, grant the minimum per job.
+permissions: {}
+
+jobs:
+  security-check:
+    name: Security check
+    runs-on: ${{ inputs.runner }}
+    timeout-minutes: 20
+    permissions:
+      contents: read # required only so actions/checkout can read the repository
+      # security-events: write  # ONLY if you add a step that uploads SARIF to
+      #   code scanning. It lets the job write to the repository's security tab,
+      #   so do not enable it speculatively. The caller must grant it too — a
+      #   reusable workflow can narrow the caller's token but never widen it.
+    defaults:
+      run:
+        working-directory: ${{ inputs.working-directory }}
+    steps:
+      - name: Check out source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # actions/checkout v7.0.1
+        # Pinned to a full commit SHA, not the mutable @v7 tag. Published by
+        # GitHub; see docs/RECOMMENDED_ACTIONS.md.
+        with:
+          ref: ${{ inputs.ref }}
+          persist-credentials: false
+
+      - name: Scan tracked files for common credentials
+        run: |
+          repo_root=$(git rev-parse --show-toplevel)
+          if findings=$(git -C "$repo_root" grep -l -I -E \
+            -e '-----BEGIN (RSA |EC |OPENSSH )?PRIVATE KEY-----' \
+            -e 'AKIA[0-9A-Z]{16}' \
+            -e '(gh[pousr]_[A-Za-z0-9_]{30,}|github_pat_[A-Za-z0-9_]{20,})' \
+            -e "(password|api[_-]?key|client[_-]?secret|access[_-]?token)[[:space:]]*[:=][[:space:]]*[\"'][^\"'[:space:]]{8,}[\"']" \
+            -- .); then
+            echo "::error title=Potential credentials detected::Review the listed files and remove any committed credentials."
+            printf '%s\n' "$findings"
+            exit 1
+          else
+            status=$?
+            if [ "$status" -ne 1 ]; then
+              exit "$status"
+            fi
+          fi
+          echo "No common credential patterns found in tracked files."

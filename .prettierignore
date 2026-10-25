@@ -1,0 +1,7 @@
+node_modules/
+.next/
+next-env.d.ts
+package-lock.json
+design_handoff_sugarmenu_site/
+work/
+outputs/
