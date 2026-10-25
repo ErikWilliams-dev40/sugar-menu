@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics><meta name="design_doc_mode" content="canvas"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Jost:wght@400..600&display=swap"><style>body{margin:0;background:#EEE8E6;font-family:system-ui,sans-serif}a{color:inherit;text-decoration:none}a:hover{color:inherit}.dv-turn{padding:40px 44px 32px;border-bottom:1px solid rgba(0,0,0,.08);scroll-margin-top:16px}.dv-thd{display:flex;align-items:baseline;gap:10px;margin:0 0 20px}.dv-tid{font:600 10px ui-monospace,Menlo,monospace;padding:3px 7px;background:#1a1a1a;color:#fff;border-radius:4px;text-decoration:none}.dv-tname{font:600 13px/1.2 system-ui,sans-serif;color:#1a1a1a}.dv-opts{display:flex;flex-wrap:wrap;gap:28px;align-items:flex-start}.dv-opt{flex:none;display:flex;flex-direction:column;gap:9px;scroll-margin-top:16px}.dv-oid{font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none}.dv-olabel{display:flex;align-items:baseline;gap:8px;font:400 11px/1.3 system-ui,sans-serif;color:rgba(0,0,0,.55)}.dv-card{max-width:100%;background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,.06);overflow:hidden}.dv-opt:target .dv-oid{background:#2a78d6;color:#fff}.dv-next{margin:22px 0 0;font:12px/1.5 system-ui,sans-serif;color:rgba(0,0,0,.5)}</style></helmet>
+<section class="dv-turn" id="t1">
+  <div class="dv-thd"><a class="dv-tid" href="#t1">1</a><span class="dv-tname">The Sugar Dish — community preview &amp; early-access signup</span></div>
+  <div class="dv-opts">
+
+    <div class="dv-opt" id="1a"><div class="dv-olabel"><a class="dv-oid" href="#1a">1a</a>Blush preview — sneak peek of the table, then RSVP</div>
+      <div class="dv-card" style="width:1280px;background:#FBF7F5">
+        <dc-import name="SMHeader" active="The Sugar Dish" hint-size="100%,150px"></dc-import>
+        <section style="background:#F6D6DC;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:56px;align-items:center;padding:64px 56px">
+          <div style="display:flex;flex-direction:column;gap:18px">
+            <span style="font:600 11px/1 'Jost',sans-serif;letter-spacing:.3em;text-transform:uppercase;color:#A82E58">Community · Early Access</span>
+            <h1 style="margin:0;font:800 112px/.85 'Playfair Display',Georgia,serif;text-transform:uppercase;letter-spacing:-.045em;color:#3B0D18">The Sugar <em style="color:#C23A68">Dish</em></h1>
+            <p style="margin:0;font:italic 500 30px/1.2 'Playfair Display',Georgia,serif;color:#2A0910">Pull up a chair. Spill something.</p>
+            <p style="margin:0;max-width:500px;font:400 17px/1.6 'Libre Caslon Text',Georgia,serif;color:#4E343A">Stories, hot takes, unsolicited advice, and the questions you can’t ask your group chat. A members-only table for the new you — and everyone you’d actually want to gossip with.</p>
+            <sc-if value="{{ aOpen }}" hint-placeholder-val="{{ true }}">
+              <form onSubmit="{{ aSubmit }}" style="display:flex;gap:6px;max-width:500px;margin-top:6px"><input type="email" required="" placeholder="Your email address" aria-label="Email for early access" style="flex:1;min-width:0;height:54px;padding:0 18px;border:0;background:#FFFDFC;color:#2A0910;font:400 15px/1 'Libre Caslon Text',Georgia,serif;outline:none"><button type="submit" style="height:54px;padding:0 24px;border:0;background:#3B0D18;color:#FFFDFC;font:600 11px/1 'Jost',sans-serif;letter-spacing:.16em;text-transform:uppercase;cursor:pointer">Save my seat →</button></form>
+            </sc-if>
+            <sc-if value="{{ aDone }}" hint-placeholder-val="{{ false }}"><p style="margin:6px 0 0;padding:16px 20px;background:#3B0D18;color:#FFFDFC;font:italic 500 20px/1.3 'Playfair Display',Georgia,serif;max-width:500px">You’re on the list. We saved you the good seat.</p></sc-if>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:14px">
+            <div style="background:#FFFDFC;padding:22px 24px;display:flex;flex-direction:column;gap:10px;box-shadow:0 8px 24px rgba(59,13,24,.08)"><div style="display:flex;justify-content:space-between;font:600 9.5px/1 'Jost',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#C23A68"><span>Sweet Talk</span><span style="color:#7A5F65;font-weight:500">2h</span></div><p style="margin:0;font:600 20px/1.25 'Playfair Display',Georgia,serif;color:#2A0910">Is it ever okay to go through his phone? (Asking for a friend who already did.)</p><span style="font:500 12px/1 'Jost',sans-serif;color:#7A5F65">142 replies · @velvetverdict</span></div>
+            <div style="background:#FFFDFC;padding:22px 24px;display:flex;flex-direction:column;gap:10px;box-shadow:0 8px 24px rgba(59,13,24,.08);margin-left:48px"><div style="display:flex;justify-content:space-between;font:600 9.5px/1 'Jost',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#C23A68"><span>Hot Take</span><span style="color:#7A5F65;font-weight:500">5h</span></div><p style="margin:0;font:600 20px/1.25 'Playfair Display',Georgia,serif;color:#2A0910">Brunch is just breakfast with a drinking problem, and I’ve never felt more seen.</p><span style="font:500 12px/1 'Jost',sans-serif;color:#7A5F65">89 replies · @mimosamargot</span></div>
+            <div style="background:#FFFDFC;padding:22px 24px;display:flex;flex-direction:column;gap:10px;box-shadow:0 8px 24px rgba(59,13,24,.08)"><div style="display:flex;justify-content:space-between;font:600 9.5px/1 'Jost',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#C23A68"><span>Eye Candy</span><span style="color:#7A5F65;font-weight:500">1d</span></div><p style="margin:0;font:600 20px/1.25 'Playfair Display',Georgia,serif;color:#2A0910">Who else bought a whole new wardrobe and now needs somewhere to wear it?</p><span style="font:500 12px/1 'Jost',sans-serif;color:#7A5F65">211 replies · @newchapterchloe</span></div>
+          </div>
+        </section>
+        <section style="padding:56px">
+          <div style="padding-bottom:12px;border-bottom:1px solid rgba(59,13,24,.2);margin-bottom:28px;font:600 22px/1 'Playfair Display',Georgia,serif;text-transform:uppercase;color:#2A0910">What’s on the table</div>
+          <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px">
+            <div style="display:flex;flex-direction:column;gap:10px"><span style="font:italic 400 40px/1 'Playfair Display',Georgia,serif;color:#C23A68">Spill</span><p style="margin:0;font:400 15px/1.55 'Libre Caslon Text',Georgia,serif;color:#5B4248">Share your story — the trip, the breakup, the glow-up — anonymously if you like.</p></div>
+            <div style="display:flex;flex-direction:column;gap:10px"><span style="font:italic 400 40px/1 'Playfair Display',Georgia,serif;color:#C23A68">Ask</span><p style="margin:0;font:400 15px/1.55 'Libre Caslon Text',Georgia,serif;color:#5B4248">Put a question to the table and get answers from women who’ve been there.</p></div>
+            <div style="display:flex;flex-direction:column;gap:10px"><span style="font:italic 400 40px/1 'Playfair Display',Georgia,serif;color:#C23A68">Debate</span><p style="margin:0;font:400 15px/1.55 'Libre Caslon Text',Georgia,serif;color:#5B4248">Weekly hot takes, polls and the occasional very civilized brawl.</p></div>
+            <div style="display:flex;flex-direction:column;gap:10px"><span style="font:italic 400 40px/1 'Playfair Display',Georgia,serif;color:#C23A68">Connect</span><p style="margin:0;font:400 15px/1.55 'Libre Caslon Text',Georgia,serif;color:#5B4248">Find your people by city, interest, or next-chapter plan.</p></div>
+          </div>
+        </section>
+        <section style="margin:0 56px 56px;background:#3B0D18;color:#FFFDFC;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;padding:44px;align-items:center">
+          <div style="display:flex;flex-direction:column;gap:12px"><span style="font:500 11px/1 'Jost',sans-serif;letter-spacing:.3em;text-transform:uppercase;color:#F6D6DC">House Rules</span><h2 style="margin:0;font:800 44px/.95 'Playfair Display',Georgia,serif;text-transform:uppercase;letter-spacing:-.03em">Be honest. Be kind. <em style="color:#F2709C">Be fabulous.</em></h2></div>
+          <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:14px;font:400 16px/1.5 'Libre Caslon Text',Georgia,serif;color:#F3E6E8"><li style="padding-bottom:14px;border-bottom:1px solid rgba(255,253,252,.15)">What’s said at the table stays at the table.</li><li style="padding-bottom:14px;border-bottom:1px solid rgba(255,253,252,.15)">Roast the idea, never the woman.</li><li>No diet talk unless she asked. (She didn’t.)</li></ul>
+        </section>
+        <dc-import name="SMFooter" hint-size="100%,620px"></dc-import>
+      </div>
+    </div>
+
+    <div class="dv-opt" id="1b"><div class="dv-olabel"><a class="dv-oid" href="#1b">1b</a>The invitation — burgundy RSVP card, live feed preview beside it</div>
+      <div class="dv-card" style="width:1280px;background:#FBF7F5">
+        <dc-import name="SMHeader" active="The Sugar Dish" hint-size="100%,150px"></dc-import>
+        <section style="position:relative;background-color:#4A1422;background-image:repeating-linear-gradient(135deg,rgba(242,112,156,.12) 0 1px,transparent 1px 10px);padding:72px 56px;display:grid;grid-template-columns:minmax(0,520px) minmax(0,1fr);gap:56px;align-items:center">
+          <span style="position:absolute;top:14px;right:16px;font:500 9.5px/1.35 ui-monospace,Menlo,monospace;color:#F6C3D2;text-transform:uppercase">Background · candlelit dinner table, long view, women laughing</span>
+          <div style="background:#FBF7F5;padding:44px 40px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:16px;outline:1px solid #C23A68;outline-offset:-12px;box-shadow:0 30px 60px rgba(0,0,0,.35)">
+            <span style="font:600 10.5px/1 'Jost',sans-serif;letter-spacing:.3em;text-transform:uppercase;color:#C23A68">You’re invited</span>
+            <h1 style="margin:0;font:800 64px/.9 'Playfair Display',Georgia,serif;text-transform:uppercase;letter-spacing:-.04em;color:#3B0D18">The Sugar <em style="color:#C23A68">Dish</em></h1>
+            <p style="margin:0;font:italic 500 21px/1.3 'Playfair Display',Georgia,serif;color:#2A0910">A members-only table for women writing their next chapter.</p>
+            <div style="width:60px;height:1px;background:#C23A68"></div>
+            <p style="margin:0;font:400 14px/1.6 'Libre Caslon Text',Georgia,serif;color:#5B4248">Doors open early 2027. Founding members get first seats, a founder’s badge and the good gossip first.</p>
+            <sc-if value="{{ bOpen }}" hint-placeholder-val="{{ true }}">
+              <form onSubmit="{{ bSubmit }}" style="display:flex;flex-direction:column;gap:8px;width:100%;margin-top:6px"><input placeholder="First name" aria-label="First name" style="height:50px;padding:0 16px;border:1px solid rgba(59,13,24,.25);background:#FFFDFC;color:#2A0910;font:400 15px/1 'Libre Caslon Text',Georgia,serif;outline:none"><input type="email" required="" placeholder="Email address" aria-label="Email" style="height:50px;padding:0 16px;border:1px solid rgba(59,13,24,.25);background:#FFFDFC;color:#2A0910;font:400 15px/1 'Libre Caslon Text',Georgia,serif;outline:none"><button type="submit" style="height:52px;border:0;background:#F2709C;color:#2A0910;font:600 11.5px/1 'Jost',sans-serif;letter-spacing:.18em;text-transform:uppercase;cursor:pointer">RSVP for early access</button></form>
+            </sc-if>
+            <sc-if value="{{ bDone }}" hint-placeholder-val="{{ false }}"><p style="margin:6px 0 0;font:italic 500 22px/1.3 'Playfair Display',Georgia,serif;color:#C23A68">RSVP received. Wear something fabulous.</p></sc-if>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:12px;color:#FFFDFC">
+            <span style="font:500 11px/1 'Jost',sans-serif;letter-spacing:.3em;text-transform:uppercase;color:#F6D6DC">Overheard at the table</span>
+            <div style="background:rgba(42,9,16,.78);padding:20px 22px;display:flex;flex-direction:column;gap:8px;border:1px solid rgba(255,253,252,.12)"><p style="margin:0;font:500 19px/1.3 'Playfair Display',Georgia,serif">“I booked the solo trip. Now talk me out of cancelling.”</p><span style="font:500 11.5px/1 'Jost',sans-serif;color:#EADADD">Sugar High · 64 replies</span></div>
+            <div style="background:rgba(42,9,16,.78);padding:20px 22px;display:flex;flex-direction:column;gap:8px;border:1px solid rgba(255,253,252,.12)"><p style="margin:0;font:500 19px/1.3 'Playfair Display',Georgia,serif">“Poll: is a second date at the same restaurant romantic or lazy?”</p><span style="font:500 11.5px/1 'Jost',sans-serif;color:#EADADD">Sweet Talk · 203 votes</span></div>
+            <div style="background:rgba(42,9,16,.78);padding:20px 22px;display:flex;flex-direction:column;gap:8px;border:1px solid rgba(255,253,252,.12)"><p style="margin:0;font:500 19px/1.3 'Playfair Display',Georgia,serif">“Six months on GLP-1 and my sister keeps commenting. Scripts, please.”</p><span style="font:500 11.5px/1 'Jost',sans-serif;color:#EADADD">GLProud · 97 replies</span></div>
+            <div style="background:rgba(42,9,16,.78);padding:20px 22px;display:flex;flex-direction:column;gap:8px;border:1px solid rgba(255,253,252,.12)"><p style="margin:0;font:500 19px/1.3 'Playfair Display',Georgia,serif">“The red lipstick thread is back. You know what to do.”</p><span style="font:500 11.5px/1 'Jost',sans-serif;color:#EADADD">Eye Candy · 312 replies</span></div>
+          </div>
+        </section>
+        <section style="padding:48px 56px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px">
+          <div style="border-top:2px solid #3B0D18;padding-top:16px;display:flex;flex-direction:column;gap:8px"><span style="font:700 22px/1.1 'Playfair Display',Georgia,serif;color:#2A0910">Founding member badge</span><span style="font:400 14px/1.5 'Libre Caslon Text',Georgia,serif;color:#5B4248">Proof you were here before it was cool.</span></div>
+          <div style="border-top:2px solid #3B0D18;padding-top:16px;display:flex;flex-direction:column;gap:8px"><span style="font:700 22px/1.1 'Playfair Display',Georgia,serif;color:#2A0910">First look at features</span><span style="font:400 14px/1.5 'Libre Caslon Text',Georgia,serif;color:#5B4248">Help shape the table before the doors open.</span></div>
+          <div style="border-top:2px solid #3B0D18;padding-top:16px;display:flex;flex-direction:column;gap:8px"><span style="font:700 22px/1.1 'Playfair Display',Georgia,serif;color:#2A0910">Member-only events</span><span style="font:400 14px/1.5 'Libre Caslon Text',Georgia,serif;color:#5B4248">Dinners, live chats and the occasional very good party.</span></div>
+        </section>
+        <dc-import name="SMFooter" banner="{{ false }}" hint-size="100%,300px"></dc-import>
+      </div>
+    </div>
+  </div>
+  <p class="dv-next">Try next: "<a class="dv-oid" href="#1a">1a</a> with the RSVP card from <a class="dv-oid" href="#1b">1b</a>" · "add a city selector to the signup" · "design the logged-in feed (phase 2)"</p>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { a: false, b: false };
+  renderVals() {
+    return {
+      aOpen: !this.state.a, aDone: this.state.a, aSubmit: e => { e.preventDefault(); this.setState({ a: true }); },
+      bOpen: !this.state.b, bDone: this.state.b, bSubmit: e => { e.preventDefault(); this.setState({ b: true }); }
+    };
+  }
+}
+</script>
+</body>
+</html>

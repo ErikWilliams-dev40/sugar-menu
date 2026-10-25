@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics><meta name="design_doc_mode" content="canvas"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Jost:wght@400..600&display=swap"><style>body{margin:0;background:#EEE8E6;font-family:system-ui,sans-serif}a{color:inherit;text-decoration:none}a:hover{color:inherit}.dv-turn{padding:40px 44px 32px;border-bottom:1px solid rgba(0,0,0,.08);scroll-margin-top:16px}.dv-thd{display:flex;align-items:baseline;gap:10px;margin:0 0 20px}.dv-tid{font:600 10px ui-monospace,Menlo,monospace;padding:3px 7px;background:#1a1a1a;color:#fff;border-radius:4px;text-decoration:none}.dv-tname{font:600 13px/1.2 system-ui,sans-serif;color:#1a1a1a}.dv-opts{display:flex;flex-wrap:wrap;gap:28px;align-items:flex-start}.dv-opt{flex:none;display:flex;flex-direction:column;gap:9px;scroll-margin-top:16px}.dv-oid{font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none}.dv-olabel{display:flex;align-items:baseline;gap:8px;font:400 11px/1.3 system-ui,sans-serif;color:rgba(0,0,0,.55)}.dv-card{max-width:100%;background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,.06);overflow:hidden}.dv-opt:target .dv-oid{background:#2a78d6;color:#fff}.dv-next{margin:22px 0 0;font:12px/1.5 system-ui,sans-serif;color:rgba(0,0,0,.5)}</style></helmet>
+<section class="dv-turn" id="t1">
+  <div class="dv-thd"><a class="dv-tid" href="#t1">1</a><span class="dv-tname">Article template</span></div>
+  <div class="dv-opts">
+
+    <div class="dv-opt" id="1a"><div class="dv-olabel"><a class="dv-oid" href="#1a">1a</a>Classic — centered headline, wide image, body + sticky rail</div>
+      <div class="dv-card" style="width:1280px;background:#FBF7F5">
+        <dc-import name="SMHeader" active="Sugar High" hint-size="100%,150px"></dc-import>
+        <header style="max-width:900px;margin:0 auto;padding:56px 24px 36px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:18px">
+          <div style="display:flex;gap:10px;font:600 10.5px/1 'Jost',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#C23A68"><a href="#">Sugar High</a><span style="color:#7A5F65">/</span><a href="#">Solo Travel</a></div>
+          <h1 style="margin:0;font:800 62px/.95 'Playfair Display',Georgia,serif;text-transform:uppercase;letter-spacing:-.035em;color:#2A0910;text-wrap:balance">The Solo Trip That Changed <em style="color:#C23A68">Everything About Me</em></h1>
+          <p style="margin:0;max-width:640px;font:italic 400 22px/1.4 'Playfair Display',Georgia,serif;color:#5B4248">I booked a table for one in Positano, ordered the whole menu, and finally met the woman I’d been too busy to get to know.</p>
+          <div style="display:flex;gap:18px;align-items:center;font:500 11.5px/1 'Jost',sans-serif;letter-spacing:.08em;color:#7A5F65"><span style="width:36px;height:36px;border-radius:50%;background:#F1CBD3"></span><span>By <strong style="color:#2A0910;font-weight:600">Delphine Reyes</strong></span><span>Oct 20, 2026</span><span>11 min read</span></div>
+        </header>
+        <figure style="margin:0 24px;display:flex;flex-direction:column;gap:8px"><dc-import name="SMPh" label="Hero · cliffside terrace at golden hour, single place setting, spritz" ratio="21/9" tone="dark" hint-size="100%,540px"></dc-import><figcaption style="font:400 12px/1.4 'Jost',sans-serif;color:#7A5F65">Dinner for one, Amalfi Coast. Photograph: Name Surname</figcaption></figure>
+        <div style="padding:48px 24px;display:grid;grid-template-columns:80px minmax(0,680px) 300px;justify-content:center;gap:48px">
+          <div style="display:flex;flex-direction:column;gap:10px;align-items:center;font:600 9.5px/1 'Jost',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#3B0D18"><span style="color:#7A5F65">Share</span><a href="#" style="width:40px;height:40px;border:1px solid rgba(59,13,24,.25);display:flex;align-items:center;justify-content:center">IG</a><a href="#" style="width:40px;height:40px;border:1px solid rgba(59,13,24,.25);display:flex;align-items:center;justify-content:center">X</a><a href="#" style="width:40px;height:40px;border:1px solid rgba(59,13,24,.25);display:flex;align-items:center;justify-content:center">Link</a></div>
+          <article style="font:400 19px/1.75 'Libre Caslon Text',Georgia,serif;color:#3A2328;display:flex;flex-direction:column;gap:24px">
+            <p style="margin:0"><span style="float:left;font:800 92px/.8 'Playfair Display',Georgia,serif;color:#3B0D18;margin:8px 12px 0 0">T</span>he first night, I almost ordered room service. The second night, I put on the green dress I’d packed “just in case,” walked down 211 steps and asked for the best table in the house. The waiter looked behind me for my husband. I let him look.</p>
+            <p style="margin:0">Nobody tells you that solo travel at this age isn’t about finding yourself. You already know where you are. It’s about finally having the time to listen to her.</p>
+            <blockquote style="margin:16px 0;padding:8px 0 8px 0;font:italic 600 34px/1.2 'Playfair Display',Georgia,serif;color:#C23A68;text-align:center;border-top:1px solid rgba(59,13,24,.2);border-bottom:1px solid rgba(59,13,24,.2);padding:28px 0">“The waiter looked behind me for my husband. I let him look.”</blockquote>
+            <h2 style="margin:8px 0 0;font:700 28px/1.15 'Playfair Display',Georgia,serif;color:#2A0910">The rules I broke (all of them)</h2>
+            <p style="margin:0">Dessert first. Two glasses of wine at lunch. A nap at four. A conversation with a stranger that lasted until the restaurant stacked the chairs around us.</p>
+            <figure style="margin:8px 0;display:flex;flex-direction:column;gap:8px"><dc-import name="SMPh" label="Inline · handwritten postcard, espresso, lemon" ratio="3/2" tone="blush" hint-size="100%,450px"></dc-import><figcaption style="font:400 12px/1.4 'Jost',sans-serif;color:#7A5F65">Postcards to nobody. Highly recommended.</figcaption></figure>
+            <p style="margin:0">By the end of the week I’d stopped checking my phone at dinner. By the end of the month I’d booked the next trip. Lisbon, this time. Table for one. Obviously.</p>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;padding-top:12px"><a href="#" style="border:1px solid rgba(59,13,24,.25);font:600 10px/1 'Jost',sans-serif;letter-spacing:.14em;text-transform:uppercase;padding:9px 12px;color:#3B0D18">Solo Travel</a><a href="#" style="border:1px solid rgba(59,13,24,.25);font:600 10px/1 'Jost',sans-serif;letter-spacing:.14em;text-transform:uppercase;padding:9px 12px;color:#3B0D18">Italy</a><a href="#" style="border:1px solid rgba(59,13,24,.25);font:600 10px/1 'Jost',sans-serif;letter-spacing:.14em;text-transform:uppercase;padding:9px 12px;color:#3B0D18">Reinvention</a></div>
+            <div style="display:flex;gap:18px;align-items:center;padding:24px;background:#F4EAE0"><span style="flex:none;width:72px;height:72px;border-radius:50%;background:#F1CBD3"></span><div style="display:flex;flex-direction:column;gap:6px"><span style="font:600 17px/1 'Playfair Display',Georgia,serif;color:#2A0910">Delphine Reyes</span><span style="font:400 14px/1.5 'Libre Caslon Text',Georgia,serif;color:#5B4248">Travel editor. Has never once checked a bag on time.</span></div></div>
+          </article>
+          <aside style="display:flex;flex-direction:column;gap:28px">
+            <div><div style="padding-bottom:10px;border-bottom:1px solid rgba(59,13,24,.2);font:600 17px/1 'Playfair Display',Georgia,serif;text-transform:uppercase;color:#2A0910">Trending Now</div>
+              <dc-import name="SMItem" n="01" title="I Tried GLP-1 — Here’s What I Really Think" kicker="GLProud" hint-size="100%,86px"></dc-import>
+              <dc-import name="SMItem" n="02" title="10 Date Night Ideas (That Aren’t Just Dinner)" kicker="Sweet Talk" tone="dark" hint-size="100%,86px"></dc-import>
+              <dc-import name="SMItem" n="03" title="The Beauty Products Actually Worth the Hype" kicker="Eye Candy" hint-size="100%,86px"></dc-import>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:6px;align-items:center"><span style="font:500 9.5px/1 'Jost',sans-serif;letter-spacing:.24em;text-transform:uppercase;color:#7A5F65">Advertisement</span><dc-import name="SMPh" label="Sponsor · 300 × 600" ratio="1/2" hint-size="100%,600px"></dc-import></div>
+          </aside>
+        </div>
+        <div style="padding:0 24px 44px">
+          <div style="padding-bottom:12px;border-bottom:2px solid #3B0D18;margin-bottom:22px;font:700 26px/1 'Playfair Display',Georgia,serif;text-transform:uppercase;color:#3B0D18">More Sugar High</div>
+          <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px">
+            <dc-import name="SMStory" size="sm" kicker="Hotels" title="Seven Hotels Where Room Service Is the Main Character" shot="Suite, robe, tray" hint-size="100%,300px"></dc-import>
+            <dc-import name="SMStory" size="sm" kicker="City Guide" title="Solo Travel, but Make It Lisbon" shot="Tiled street, tram" hint-size="100%,300px"></dc-import>
+            <dc-import name="SMStory" size="sm" kicker="Trips" title="The Prettiest Places to Disappear This Spring" shot="Pool at dusk" hint-size="100%,300px"></dc-import>
+            <dc-import name="SMStory" size="sm" kicker="Packing" title="One Carry-On, Nine Outfits, Zero Regrets" shot="Open suitcase, silk" hint-size="100%,300px"></dc-import>
+          </div>
+        </div>
+        <div style="padding:0 24px 44px"><dc-import name="SMPromos" hint-size="100%,220px"></dc-import></div>
+        <dc-import name="SMFooter" banner="{{ false }}" hint-size="100%,300px"></dc-import>
+      </div>
+    </div>
+
+    <div class="dv-opt" id="1b"><div class="dv-olabel"><a class="dv-oid" href="#1b">1b</a>Editorial split — burgundy opener, portrait image, wide margins</div>
+      <div class="dv-card" style="width:1280px;background:#FBF7F5">
+        <dc-import name="SMHeader" active="Sweet Talk" hint-size="100%,150px"></dc-import>
+        <section style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);min-height:640px;background:#3B0D18;color:#FFFDFC">
+          <div style="display:flex;flex-direction:column;justify-content:flex-end;gap:22px;padding:56px">
+            <span style="font:500 12px/1 'Jost',sans-serif;letter-spacing:.3em;text-transform:uppercase;color:#F6D6DC">Sweet Talk · Sex</span>
+            <h1 style="margin:0;font:800 66px/.92 'Playfair Display',Georgia,serif;text-transform:uppercase;letter-spacing:-.035em;text-wrap:balance">Sex After 40 Is a Better Party <em style="color:#F2709C">Than Anyone Told You</em></h1>
+            <p style="margin:0;max-width:480px;font:400 19px/1.5 'Libre Caslon Text',Georgia,serif;color:#F3E6E8">Less performing, more requesting. Seven women on the best sex of their lives — and why nobody warned them it would get this good.</p>
+            <div style="display:flex;gap:18px;font:500 11.5px/1 'Jost',sans-serif;letter-spacing:.08em;color:#EADADD"><span>By Simone Hart</span><span>Oct 18, 2026</span><span>9 min read</span></div>
+          </div>
+          <dc-import name="SMPh" label="Portrait · silk robe, hotel window, morning light" h="100%" tone="dark" hint-size="100%,640px"></dc-import>
+        </section>
+        <div style="padding:64px 24px;display:grid;grid-template-columns:240px minmax(0,640px) 240px;justify-content:center;gap:56px">
+          <aside style="display:flex;flex-direction:column;gap:14px;padding-top:6px"><span style="font:600 10px/1 'Jost',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#C23A68">In this story</span><a href="#" style="font:500 15px/1.3 'Playfair Display',Georgia,serif;color:#2A0910;padding-bottom:10px;border-bottom:1px solid rgba(59,13,24,.15)">1. The confidence curve</a><a href="#" style="font:500 15px/1.3 'Playfair Display',Georgia,serif;color:#2A0910;padding-bottom:10px;border-bottom:1px solid rgba(59,13,24,.15)">2. Asking for it (specifically)</a><a href="#" style="font:500 15px/1.3 'Playfair Display',Georgia,serif;color:#2A0910;padding-bottom:10px;border-bottom:1px solid rgba(59,13,24,.15)">3. New partner, new rules</a><a href="#" style="font:500 15px/1.3 'Playfair Display',Georgia,serif;color:#2A0910">4. What we wish we’d known</a></aside>
+          <article style="font:400 19px/1.75 'Libre Caslon Text',Georgia,serif;color:#3A2328;display:flex;flex-direction:column;gap:24px">
+            <p style="margin:0;font:500 24px/1.5 'Playfair Display',Georgia,serif;color:#2A0910">Somewhere between the second kid and the first reading glasses, the culture decided we were done. Nobody asked us.</p>
+            <p style="margin:0">“I spent my twenties performing and my thirties apologizing,” says Margot, 52. “Now I just say what I want. It’s astonishing how often I get it.”</p>
+            <h2 style="margin:12px 0 0;font:700 30px/1.1 'Playfair Display',Georgia,serif;color:#2A0910;text-transform:uppercase;letter-spacing:-.02em">1. The confidence <em style="color:#C23A68">curve</em></h2>
+            <p style="margin:0">Every woman we spoke to described the same turning point: the moment the inner critic finally got bored and left the room.</p>
+            <div style="background:#F6D6DC;padding:28px 32px;display:flex;flex-direction:column;gap:10px"><span style="font:600 10px/1 'Jost',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#A82E58">Sugar’s Shortlist</span><p style="margin:0;font:italic 500 21px/1.4 'Playfair Display',Georgia,serif;color:#2A0910">Three things every woman over 40 should own: good sheets, a lock on the bedroom door, and the phrase “a little to the left.”</p></div>
+            <p style="margin:0">The rest, as they say, is practice.</p>
+          </article>
+          <aside style="display:flex;flex-direction:column;gap:16px;padding-top:6px"><span style="font:600 10px/1 'Jost',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#C23A68">Discuss in The Sugar Dish</span><p style="margin:0;font:italic 500 18px/1.35 'Playfair Display',Georgia,serif;color:#2A0910">“Best sex of my life started at 49. Ask me anything.”</p><span style="font:500 11px/1 'Jost',sans-serif;color:#7A5F65">318 replies</span><a href="#" style="align-self:flex-start;background:#F2709C;color:#2A0910;font:600 10.5px/1 'Jost',sans-serif;letter-spacing:.14em;text-transform:uppercase;padding:12px 16px">Join the thread →</a></aside>
+        </div>
+        <div style="padding:0 24px 44px">
+          <div style="padding-bottom:12px;border-bottom:2px solid #3B0D18;margin-bottom:22px;font:700 26px/1 'Playfair Display',Georgia,serif;text-transform:uppercase;color:#3B0D18">Keep Talking</div>
+          <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px">
+            <dc-import name="SMStory" layout="row" size="sm" thumb="110px" kicker="Breakups" title="The Situationship Exit Interview" shot="Mirror note" tone="blush" hint-size="100%,110px"></dc-import>
+            <dc-import name="SMStory" layout="row" size="sm" thumb="110px" kicker="Relationships" title="Separate Bedrooms Saved Our Marriage" shot="Two beds" tone="blush" hint-size="100%,110px"></dc-import>
+            <dc-import name="SMStory" layout="row" size="sm" thumb="110px" kicker="Ask Sugar" title="Is It Cheating If It’s Only Emotional?" shot="Phone glow" tone="blush" hint-size="100%,110px"></dc-import>
+          </div>
+        </div>
+        <dc-import name="SMFooter" hint-size="100%,620px"></dc-import>
+      </div>
+    </div>
+  </div>
+  <p class="dv-next">Try next: "<a class="dv-oid" href="#1a">1a</a> with the chapter nav from <a class="dv-oid" href="#1b">1b</a>" · "a GLProud version with a medical-review badge" · "a listicle / shopping variant"</p>
+</section>
+</x-dc>
+</body>
+</html>

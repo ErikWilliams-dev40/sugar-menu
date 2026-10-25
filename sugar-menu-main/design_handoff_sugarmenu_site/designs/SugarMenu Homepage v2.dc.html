@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics><meta name="design_doc_mode" content="canvas"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Jost:wght@400..600&display=swap"><style>body{margin:0;background:#EEE8E6;font-family:system-ui,sans-serif}a{color:inherit;text-decoration:none}a:hover{color:inherit}.dv-turn{padding:40px 44px 32px;border-bottom:1px solid rgba(0,0,0,.08);scroll-margin-top:16px}.dv-thd{display:flex;align-items:baseline;gap:10px;margin:0 0 20px}.dv-tid{font:600 10px ui-monospace,Menlo,monospace;padding:3px 7px;background:#1a1a1a;color:#fff;border-radius:4px;text-decoration:none}.dv-tname{font:600 13px/1.2 system-ui,sans-serif;color:#1a1a1a}.dv-opts{display:flex;flex-wrap:wrap;gap:28px;align-items:flex-start}.dv-opt{flex:none;display:flex;flex-direction:column;gap:9px;scroll-margin-top:16px}.dv-oid{font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none}.dv-olabel{display:flex;align-items:baseline;gap:8px;font:400 11px/1.3 system-ui,sans-serif;color:rgba(0,0,0,.55)}.dv-card{max-width:100%;background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,.06);overflow:hidden}.dv-opt:target .dv-oid{background:#2a78d6;color:#fff}.dv-next{margin:22px 0 0;font:12px/1.5 system-ui,sans-serif;color:rgba(0,0,0,.5)}</style></helmet>
+<section class="dv-turn" id="t1">
+  <div class="dv-thd"><a class="dv-tid" href="#t1">1</a><span class="dv-tname">Homepage — approved structure, refined (Sweet Tea / Spill the Sugar → The Sugar Dish)</span></div>
+  <div class="dv-opts">
+
+    <div class="dv-opt" id="1a"><div class="dv-olabel"><a class="dv-oid" href="#1a">1a</a>Faithful refinement — approved order, plus long read, section row, GLProud &amp; ad slot</div>
+      <div class="dv-card" style="width:1280px;background:#FBF7F5">
+        <dc-import name="SMHeader" hint-size="100%,150px"></dc-import>
+        <dc-import name="SMHero" variant="photo" hint-size="100%,560px"></dc-import>
+        <div style="padding:16px;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px">
+          <dc-import name="SMTile" hint-size="100%,330px" dc-props="{{ t1 }}"></dc-import>
+          <dc-import name="SMTile" hint-size="100%,330px" dc-props="{{ t2 }}"></dc-import>
+          <dc-import name="SMTile" hint-size="100%,330px" dc-props="{{ t3 }}"></dc-import>
+          <dc-import name="SMTile" hint-size="100%,330px" dc-props="{{ t4 }}"></dc-import>
+          <dc-import name="SMTile" hint-size="100%,330px" dc-props="{{ t5 }}"></dc-import>
+          <dc-import name="SMTile" hint-size="100%,330px" dc-props="{{ t6 }}"></dc-import>
+          <dc-import name="SMTile" hint-size="100%,330px" dc-props="{{ t7 }}"></dc-import>
+          <dc-import name="SMTile" hint-size="100%,330px" dc-props="{{ t8 }}"></dc-import>
+          <dc-import name="SMTile" hint-size="100%,330px" dc-props="{{ t9 }}"></dc-import>
+          <dc-import name="SMTile" hint-size="100%,330px" dc-props="{{ t10 }}"></dc-import>
+        </div>
+        <div style="padding:0 16px 16px"><dc-import name="SMPromos" hint-size="100%,220px"></dc-import></div>
+        <div style="padding:32px 16px 48px;display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:36px">
+          <div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;padding-bottom:12px;border-bottom:1px solid rgba(59,13,24,.2);margin-bottom:18px"><h2 style="margin:0;font:600 22px/1 'Playfair Display',Georgia,serif;text-transform:uppercase;color:#2A0910">Featured Stories</h2><a href="#" style="font:600 10.5px/1 'Jost',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#C23A68">See all →</a></div>
+            <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px">
+              <dc-import name="SMStory" kicker="Sugar High" title="The Prettiest Places to Disappear This Spring" excerpt="Sun-drenched escapes, dreamy hotels and trips that make everything feel possible again." shot="Terrace at sunset, lounge chairs" cta="{{ true }}" hint-size="100%,380px"></dc-import>
+              <dc-import name="SMStory" kicker="Sugar Fix" title="12 Restaurants Worth Planning a Trip Around" excerpt="Romantic date spots, girls’-night gems and meals you’ll be thinking about for a long time." shot="Pink coupes, candlelit bar" cta="{{ true }}" hint-size="100%,380px"></dc-import>
+              <dc-import name="SMStory" kicker="The Sweet Spot" title="The Art of a Better Night’s Sleep (That Actually Works)" excerpt="Practical tips, chic essentials and small changes that make a big difference." shot="Silk eye mask on pink sheets" cta="{{ true }}" hint-size="100%,380px"></dc-import>
+            </div>
+          </div>
+          <div>
+            <div style="padding-bottom:12px;border-bottom:1px solid rgba(59,13,24,.2)"><h2 style="margin:0;font:600 22px/1 'Playfair Display',Georgia,serif;text-transform:uppercase;color:#2A0910">Trending Now</h2></div>
+            <dc-import name="SMItem" n="01" title="The Solo Trip That Changed Everything About Me" kicker="Sugar High" hint-size="100%,86px"></dc-import>
+            <dc-import name="SMItem" n="02" title="I Tried GLP-1 — Here’s What I Really Think" kicker="GLProud" hint-size="100%,86px"></dc-import>
+            <dc-import name="SMItem" n="03" title="10 Date Night Ideas (That Aren’t Just Dinner)" kicker="Sweet Talk" tone="dark" hint-size="100%,86px"></dc-import>
+            <dc-import name="SMItem" n="04" title="The Beauty Products Actually Worth the Hype" kicker="Eye Candy" tone="dark" hint-size="100%,86px"></dc-import>
+            <dc-import name="SMItem" n="05" title="How to Build a Life That Feels as Good as It Looks" kicker="The Sweet Spot" hint-size="100%,86px"></dc-import>
+          </div>
+        </div>
+        <section style="background:#3B0D18;color:#FFFDFC;display:grid;grid-template-columns:420px minmax(0,1fr);gap:56px;align-items:center;padding:56px 56px">
+          <div style="background:#FFFDFC;padding:10px 10px 36px;transform:rotate(-1.5deg)"><dc-import name="SMPh" label="Portrait · woman at departure gate, oversized sunglasses" ratio="4/5" tone="dark" hint-size="100%,480px"></dc-import></div>
+          <div style="display:flex;flex-direction:column;gap:20px">
+            <span style="font:500 12px/1 'Jost',sans-serif;letter-spacing:.3em;text-transform:uppercase;color:#F6D6DC">The Long Read · Sugar High</span>
+            <h2 style="margin:0;font:800 54px/.95 'Playfair Display',Georgia,serif;text-transform:uppercase;letter-spacing:-.03em;text-wrap:balance">I turned 47 and bought a one-way ticket. <em style="color:#F2709C">My mother has notes.</em></h2>
+            <p style="margin:0;max-width:520px;font:400 18px/1.55 'Libre Caslon Text',Georgia,serif;color:#F3E6E8">On reinvention, hand-painted tiles, and the radical act of not explaining yourself at Thanksgiving.</p>
+            <div style="display:flex;gap:20px;align-items:center"><a href="#" style="background:#F2709C;color:#2A0910;font:600 12px/1 'Jost',sans-serif;letter-spacing:.16em;text-transform:uppercase;padding:16px 24px">Read the story →</a><span style="font:500 12px/1 'Jost',sans-serif;letter-spacing:.06em;color:#EADADD">By Delphine Reyes · 18 min</span></div>
+          </div>
+        </section>
+        <div style="padding:48px 16px 40px">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;padding-bottom:12px;border-bottom:2px solid #3B0D18;margin-bottom:22px"><div style="display:flex;gap:16px;align-items:baseline"><h2 style="margin:0;font:700 34px/1 'Playfair Display',Georgia,serif;text-transform:uppercase;letter-spacing:-.02em;color:#3B0D18">Sweet Talk</h2><span style="font:600 10.5px/1 'Jost',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#C23A68">Dating. Sex. Relationships.</span></div><a href="#" style="font:600 10.5px/1 'Jost',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#C23A68">All Sweet Talk →</a></div>
+          <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px">
+            <dc-import name="SMStory" size="sm" kicker="Dating" title="He Said He’s “Not Ready.” Neither Is Your New Wardrobe." shot="Taxi back seat, city lights" tone="blush" hint-size="100%,300px"></dc-import>
+            <dc-import name="SMStory" size="sm" kicker="Sex" title="Sex After 40 Is a Better Party Than Anyone Told You" shot="Silk robe on a hotel chair" tone="blush" hint-size="100%,300px"></dc-import>
+            <dc-import name="SMStory" size="sm" kicker="Breakups" title="The Situationship Exit Interview" shot="Lipstick note on a mirror" tone="blush" hint-size="100%,300px"></dc-import>
+            <dc-import name="SMStory" size="sm" kicker="Ask Sugar" title="My Ex Liked a Photo From 2019. Do I Respond?" shot="Phone face-down, martini" tone="blush" hint-size="100%,300px"></dc-import>
+          </div>
+        </div>
+        <div style="padding:0 16px 40px;display:flex;flex-direction:column;align-items:center;gap:8px"><span style="font:500 9.5px/1 'Jost',sans-serif;letter-spacing:.24em;text-transform:uppercase;color:#7A5F65">Advertisement</span><div style="width:970px"><dc-import name="SMPh" label="Sponsor / house ad · 970 × 250" ratio="970/250" tone="light" hint-size="970px,250px"></dc-import></div></div>
+        <section style="margin:0 16px 48px;background:#F4EAE0;display:flex;gap:48px;align-items:center;padding:32px 36px">
+          <div style="flex:none;width:280px;display:flex;flex-direction:column;gap:8px"><div style="font:700 40px/1 'Playfair Display',Georgia,serif;color:#3B0D18">GL<em style="color:#C23A68">Proud</em></div><p style="margin:0;font:400 14px/1.5 'Libre Caslon Text',Georgia,serif;color:#5B4248">Your GLP-1 companion. Real stories, real science — reviewed by real doctors.</p></div>
+          <div style="flex:1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px">
+            <a href="#" style="display:flex;flex-direction:column;gap:8px;padding-top:14px;border-top:1px solid #3B0D18"><span style="font:600 9.5px/1 'Jost',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#C23A68">Start here</span><span style="font:600 18px/1.2 'Playfair Display',Georgia,serif;color:#2A0910">What Nobody Tells You About the First 90 Days</span></a>
+            <a href="#" style="display:flex;flex-direction:column;gap:8px;padding-top:14px;border-top:1px solid #3B0D18"><span style="font:600 9.5px/1 'Jost',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#C23A68">Food</span><span style="font:600 18px/1.2 'Playfair Display',Georgia,serif;color:#2A0910">Smaller Plates, Better Plates: A Chef’s Guide</span></a>
+            <a href="#" style="display:flex;flex-direction:column;gap:8px;padding-top:14px;border-top:1px solid #3B0D18"><span style="font:600 9.5px/1 'Jost',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#C23A68">Ask the Doctor</span><span style="font:600 18px/1.2 'Playfair Display',Georgia,serif;color:#2A0910">Your Questions, Answered Without the Lecture</span></a>
+          </div>
+          <a href="#" style="flex:none;border:1px solid #3B0D18;color:#3B0D18;font:600 10.5px/1 'Jost',sans-serif;letter-spacing:.16em;text-transform:uppercase;padding:13px 18px">Visit GLProud →</a>
+        </section>
+        <dc-import name="SMFooter" hint-size="100%,620px"></dc-import>
+      </div>
+    </div>
+
+    <div class="dv-opt" id="1b"><div class="dv-olabel"><a class="dv-oid" href="#1b">1b</a>Content-forward — stories before categories, tiles show the latest headline</div>
+      <div class="dv-card" style="width:1280px;background:#FBF7F5">
+        <dc-import name="SMHeader" hint-size="100%,150px"></dc-import>
+        <dc-import name="SMHero" variant="photo" start="{{ 1 }}" hint-size="100%,560px"></dc-import>
+        <div style="background:#F6D6DC;display:flex;gap:26px;align-items:center;padding:13px 24px;overflow:hidden;white-space:nowrap;font:500 15px/1 'Playfair Display',Georgia,serif;color:#2A0910;mask-image:linear-gradient(to right,#000 88%,transparent)"><span style="flex:none;font:600 10px/1 'Jost',sans-serif;letter-spacing:.2em;text-transform:uppercase;background:#3B0D18;color:#FFFDFC;padding:7px 10px">Trending</span><a href="#">Every celebrity divorce this year, ranked by revenge look</a><span style="color:#C23A68">/</span><a href="#">The martini is back and it has notes</a><span style="color:#C23A68">/</span><a href="#">Your AI assistant has better boundaries than your ex</a></div>
+        <div style="padding:44px 24px;display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr) minmax(0,.9fr);gap:36px">
+          <dc-import name="SMStory" size="lg" kicker="Cover Story · The Reinvention Issue" title="Forty Women on the Exact Moment They Stopped Asking for Permission" excerpt="A divorce lawyer, a pastry chef, a retired nun, and a woman who woke up one Tuesday and chose violence (the fashionable kind)." byline="By Celeste Marlowe · 14 min read" shot="Group portrait, five women in burgundy, champagne tower" ratio="16/10" hint-size="100%,560px"></dc-import>
+          <div style="display:flex;flex-direction:column;gap:20px">
+            <dc-import name="SMStory" layout="row" size="sm" thumb="96px" kicker="Eye Candy" title="The Little Black Dress Is Dead. Long Live the Oxblood Slip." shot="Slip dress" tone="blush" hint-size="100%,96px"></dc-import>
+            <dc-import name="SMStory" layout="row" size="sm" thumb="96px" kicker="Sweet Talk" title="The Situationship Exit Interview: Questions to Ask Before You Ghost" shot="Hotel bar" tone="blush" hint-size="100%,96px"></dc-import>
+            <dc-import name="SMStory" layout="row" size="sm" thumb="96px" kicker="Sugar Fix" title="The Martini Is Back, and Frankly, It Has Notes for You" shot="Martini" tone="blush" hint-size="100%,96px"></dc-import>
+            <dc-import name="SMStory" layout="row" size="sm" thumb="96px" kicker="Sugar Bytes" title="Your AI Assistant Has Better Boundaries Than Your Ex" shot="Laptop, pink light" tone="blush" hint-size="100%,96px"></dc-import>
+          </div>
+          <aside style="background:#3B0D18;color:#FFFDFC;padding:24px 22px;align-self:start">
+            <div style="font:600 10.5px/1 'Jost',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#F2709C;margin-bottom:8px">Most Devoured</div>
+            <a href="#" style="display:flex;gap:12px;padding:12px 0;border-bottom:1px solid rgba(255,253,252,.15)"><span style="font:italic 400 28px/1 'Playfair Display',Georgia,serif;color:#F2709C">1</span><span style="font:500 16px/1.25 'Playfair Display',Georgia,serif">Sex After 40 Is a Better Party Than Anyone Told You</span></a>
+            <a href="#" style="display:flex;gap:12px;padding:12px 0;border-bottom:1px solid rgba(255,253,252,.15)"><span style="font:italic 400 28px/1 'Playfair Display',Georgia,serif;color:#F2709C">2</span><span style="font:500 16px/1.25 'Playfair Display',Georgia,serif">Quiet Luxury Got Loud, and We’re Thrilled</span></a>
+            <a href="#" style="display:flex;gap:12px;padding:12px 0;border-bottom:1px solid rgba(255,253,252,.15)"><span style="font:italic 400 28px/1 'Playfair Display',Georgia,serif;color:#F2709C">3</span><span style="font:500 16px/1.25 'Playfair Display',Georgia,serif">I Tried GLP-1. Here’s What I Really Think.</span></a>
+            <a href="#" style="display:flex;gap:12px;padding:12px 0;border-bottom:1px solid rgba(255,253,252,.15)"><span style="font:italic 400 28px/1 'Playfair Display',Georgia,serif;color:#F2709C">4</span><span style="font:500 16px/1.25 'Playfair Display',Georgia,serif">Dinner Party Rules We’re Breaking This Season</span></a>
+            <a href="#" style="display:flex;gap:12px;padding:12px 0"><span style="font:italic 400 28px/1 'Playfair Display',Georgia,serif;color:#F2709C">5</span><span style="font:500 16px/1.25 'Playfair Display',Georgia,serif">Pilates Princess? Try Pilates Tyrant.</span></a>
+          </aside>
+        </div>
+        <div style="background:#3B0D18;padding:44px 24px">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:22px"><h2 style="margin:0;font:800 44px/1 'Playfair Display',Georgia,serif;text-transform:uppercase;letter-spacing:-.03em;color:#FFFDFC">On the <em style="color:#F2709C">Menu</em></h2><span style="font:italic 400 17px/1 'Playfair Display',Georgia,serif;color:#F6D6DC">Ten courses. No dietary restrictions.</span></div>
+          <div style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px">
+            <dc-import name="SMTile" hint-size="100%,320px" dc-props="{{ l1 }}"></dc-import>
+            <dc-import name="SMTile" hint-size="100%,320px" dc-props="{{ l2 }}"></dc-import>
+            <dc-import name="SMTile" hint-size="100%,320px" dc-props="{{ l3 }}"></dc-import>
+            <dc-import name="SMTile" hint-size="100%,320px" dc-props="{{ l4 }}"></dc-import>
+            <dc-import name="SMTile" hint-size="100%,320px" dc-props="{{ l5 }}"></dc-import>
+            <dc-import name="SMTile" hint-size="100%,320px" dc-props="{{ l6 }}"></dc-import>
+            <dc-import name="SMTile" hint-size="100%,320px" dc-props="{{ l7 }}"></dc-import>
+            <dc-import name="SMTile" hint-size="100%,320px" dc-props="{{ l8 }}"></dc-import>
+            <dc-import name="SMTile" hint-size="100%,320px" dc-props="{{ l9 }}"></dc-import>
+            <dc-import name="SMTile" hint-size="100%,320px" dc-props="{{ l10 }}"></dc-import>
+          </div>
+        </div>
+        <div style="padding:48px 24px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:36px">
+          <div style="display:flex;flex-direction:column;gap:16px"><div style="padding-bottom:10px;border-bottom:2px solid #3B0D18;font:700 28px/1 'Playfair Display',Georgia,serif;text-transform:uppercase;color:#3B0D18">Sugar High</div><dc-import name="SMStory" kicker="Hotels" title="Seven Hotels Where Room Service Is the Main Character" excerpt="Do not disturb. Ever." shot="Suite, room service tray, robe" ratio="3/2" hint-size="100%,320px"></dc-import><a href="#" style="padding-top:12px;border-top:1px solid rgba(59,13,24,.15);font:500 17px/1.25 'Playfair Display',Georgia,serif;color:#2A0910">The Girls’ Trip Is Dead. Long Live the Retreat (With Open Bar).</a></div>
+          <div style="display:flex;flex-direction:column;gap:16px"><div style="padding-bottom:10px;border-bottom:2px solid #3B0D18;font:700 28px/1 'Playfair Display',Georgia,serif;text-transform:uppercase;color:#3B0D18">Eye Candy</div><dc-import name="SMStory" kicker="Beauty" title="Your Skincare Shelf Is Lying to You" excerpt="Three dermatologists, one brutal edit." shot="Lipstick on a champagne coupe" ratio="3/2" hint-size="100%,320px"></dc-import><a href="#" style="padding-top:12px;border-top:1px solid rgba(59,13,24,.15);font:500 17px/1.25 'Playfair Display',Georgia,serif;color:#2A0910">The Haircut That Says “I Read the Email and Chose Not to Reply”</a></div>
+          <div style="display:flex;flex-direction:column;gap:16px"><div style="padding-bottom:10px;border-bottom:2px solid #3B0D18;font:700 28px/1 'Playfair Display',Georgia,serif;text-transform:uppercase;color:#3B0D18">The Sugar Rush</div><dc-import name="SMStory" kicker="Celebrity" title="She Didn’t Post a Breakup Statement. She Posted a Wedge Heel." excerpt="Decoding the year’s most iconic silent exits." shot="Paparazzi, sunglasses" ratio="3/2" hint-size="100%,320px"></dc-import><a href="#" style="padding-top:12px;border-top:1px solid rgba(59,13,24,.15);font:500 17px/1.25 'Playfair Display',Georgia,serif;color:#2A0910">The Novels Everyone’s Pretending They Finished This Fall</a></div>
+        </div>
+        <div style="padding:0 24px 48px"><dc-import name="SMPromos" hint-size="100%,220px"></dc-import></div>
+        <section style="margin:0 24px 48px;border-top:1px solid rgba(59,13,24,.2);border-bottom:1px solid rgba(59,13,24,.2);padding:22px 0;display:flex;gap:28px;align-items:center"><div style="font:700 30px/1 'Playfair Display',Georgia,serif;color:#3B0D18">GL<em style="color:#C23A68">Proud</em></div><p style="margin:0;flex:1;font:400 15px/1.5 'Libre Caslon Text',Georgia,serif;color:#5B4248">New this week: <a href="#" style="color:#2A0910;text-decoration:underline">What nobody tells you about the first 90 days</a> — medically reviewed, refreshingly honest.</p><a href="#" style="font:600 10.5px/1 'Jost',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#C23A68">Visit GLProud →</a></section>
+        <dc-import name="SMFooter" hint-size="100%,620px"></dc-import>
+      </div>
+    </div>
+  </div>
+  <p class="dv-next">Try next: "<a class="dv-oid" href="#1a">1a</a> but with the trending ticker from <a class="dv-oid" href="#1b">1b</a>" · "swap the long read panel to blush" · "show latest headlines on the tiles in <a class="dv-oid" href="#1a">1a</a>"</p>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const T = [
+  ['Eye Candy', '', 'Fashion. Beauty. Style.', 'Statement looks. Effortless glam. The little things that make life prettier.', 'Lipsticks on red satin', 'The lipstick that ended a marriage'],
+  ['Sweet Talk', '', 'Dating. Sex. Relationships.', 'Real conversations. Modern dating. Better boundaries. Happier you.', 'Love letter, heart seal', 'He’s “not ready.” Good.'],
+  ['Sugar High', '', 'Travel. Hotels. Adventures.', 'Bucket lists. City guides. Weekend escapes and wilder getaways.', 'Cliffside village, sea', 'A one-way ticket, zero regrets'],
+  ['Sugar Fix', '', 'Food. Drinks. Dining.', 'Good food. Great drinks. Memorable meals. Life tastes better here.', 'Pasta, wine, linen', 'Dessert first, obviously'],
+  ['The Sweet Spot', '', 'Wellness. Fitness. Mindset.', 'Stronger habits. Calmer minds. A happier, hotter you — inside and out.', 'Towel, pink dumbbells', 'Pilates princess? Try tyrant.'],
+  ['Sugar Bytes', '', 'Tech. AI. Gadgets.', 'Smart finds. Cool tools. The latest tech to make life sweeter.', 'Laptop, rose light', 'Your AI has better boundaries'],
+  ['The Sugar Rush', '', 'Culture. Celebrity. Trending.', 'Pop culture. Obsessions. Deep dives and everything worth talking about.', 'Disco ball, coupes', 'Divorces, ranked by revenge look'],
+  ['GL', 'Proud', 'GLP-1. Health. Lifestyle.', 'Real stories. Real science. A brighter, bolder you — on your terms.', 'Blush bottle, dumbbells', 'The first 90 days, honestly'],
+  ['The Sugar Dish', '', 'The Community.', 'Real women. Real stories. No filters. A place to belong, vent and celebrate.', 'Latte art, heart', 'Is it ever okay to check his phone?'],
+  ['Extra Sugar', '', 'The Newsletter.', 'The best stories. The juiciest finds. Straight to your inbox.', 'Lipstick kiss on envelope', 'Three times a week, zero guilt']
+];
+class Component extends DCLogic {
+  renderVals() {
+    const v = {};
+    T.forEach((t, k) => {
+      v['t' + (k + 1)] = { label: t[0], em: t[1], sub: t[2], desc: t[3], shot: t[4] };
+      v['l' + (k + 1)] = { label: t[0], em: t[1], sub: t[2], latest: t[5], shot: t[4] };
+    });
+    return v;
+  }
+}
+</script>
+</body>
+</html>

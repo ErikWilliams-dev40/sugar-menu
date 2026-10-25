@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics><meta name="design_doc_mode" content="canvas"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Jost:wght@400..600&display=swap"><style>body{margin:0;background:#EEE8E6;font-family:system-ui,sans-serif}a{color:inherit;text-decoration:none}a:hover{color:inherit}.dv-turn{padding:40px 44px 32px;border-bottom:1px solid rgba(0,0,0,.08);scroll-margin-top:16px}.dv-thd{display:flex;align-items:baseline;gap:10px;margin:0 0 20px}.dv-tid{font:600 10px ui-monospace,Menlo,monospace;padding:3px 7px;background:#1a1a1a;color:#fff;border-radius:4px;text-decoration:none}.dv-tname{font:600 13px/1.2 system-ui,sans-serif;color:#1a1a1a}.dv-opts{display:flex;flex-wrap:wrap;gap:28px;align-items:flex-start}.dv-opt{flex:none;display:flex;flex-direction:column;gap:9px;scroll-margin-top:16px}.dv-oid{font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none}.dv-olabel{display:flex;align-items:baseline;gap:8px;font:400 11px/1.3 system-ui,sans-serif;color:rgba(0,0,0,.55)}.dv-card{max-width:100%;background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,.06);overflow:hidden}.dv-opt:target .dv-oid{background:#2a78d6;color:#fff}.dv-next{margin:22px 0 0;font:12px/1.5 system-ui,sans-serif;color:rgba(0,0,0,.5)}</style></helmet>
+<section class="dv-turn" id="t1">
+  <div class="dv-thd"><a class="dv-tid" href="#t1">1</a><span class="dv-tname">Category page template — shown as Sweet Talk</span></div>
+  <div class="dv-opts">
+
+    <div class="dv-opt" id="1a"><div class="dv-olabel"><a class="dv-oid" href="#1a">1a</a>Section front — burgundy banner, lead + grid, Ask Sugar column</div>
+      <div class="dv-card" style="width:1280px;background:#FBF7F5">
+        <dc-import name="SMHeader" active="Sweet Talk" hint-size="100%,150px"></dc-import>
+        <section style="position:relative;background:#3B0D18;color:#FFFDFC;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);min-height:340px">
+          <div style="display:flex;flex-direction:column;justify-content:center;gap:16px;padding:48px 56px">
+            <span style="font:500 12px/1 'Jost',sans-serif;letter-spacing:.3em;text-transform:uppercase;color:#F6D6DC">Dating. Sex. Relationships.</span>
+            <h1 style="margin:0;font:800 96px/.88 'Playfair Display',Georgia,serif;text-transform:uppercase;letter-spacing:-.04em">Sweet <em style="color:#F2709C">Talk</em></h1>
+            <p style="margin:0;max-width:460px;font:400 18px/1.5 'Libre Caslon Text',Georgia,serif;color:#F3E6E8">Real conversations about modern love, better sex and the boundaries that make both possible. No judgment. Some eye-rolling.</p>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:6px">
+              <a href="#" style="background:#F2709C;color:#2A0910;font:600 10.5px/1 'Jost',sans-serif;letter-spacing:.14em;text-transform:uppercase;padding:10px 14px">All</a>
+              <a href="#" style="border:1px solid rgba(255,253,252,.4);font:600 10.5px/1 'Jost',sans-serif;letter-spacing:.14em;text-transform:uppercase;padding:9px 14px">Dating</a>
+              <a href="#" style="border:1px solid rgba(255,253,252,.4);font:600 10.5px/1 'Jost',sans-serif;letter-spacing:.14em;text-transform:uppercase;padding:9px 14px">Sex</a>
+              <a href="#" style="border:1px solid rgba(255,253,252,.4);font:600 10.5px/1 'Jost',sans-serif;letter-spacing:.14em;text-transform:uppercase;padding:9px 14px">Relationships</a>
+              <a href="#" style="border:1px solid rgba(255,253,252,.4);font:600 10.5px/1 'Jost',sans-serif;letter-spacing:.14em;text-transform:uppercase;padding:9px 14px">Breakups</a>
+              <a href="#" style="border:1px solid rgba(255,253,252,.4);font:600 10.5px/1 'Jost',sans-serif;letter-spacing:.14em;text-transform:uppercase;padding:9px 14px">Ask Sugar</a>
+            </div>
+          </div>
+          <dc-import name="SMPh" label="Love letter with heart wax seal on crimson velvet" h="100%" tone="dark" hint-size="100%,340px"></dc-import>
+        </section>
+        <div style="padding:44px 24px;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:40px">
+          <dc-import name="SMStory" size="lg" kicker="The Big Talk" title="He Said He’s “Not Ready for Anything Serious.” Neither Is Your New Wardrobe." excerpt="A field guide to dating in your next chapter — when you know exactly what you want, and it’s mostly a reservation for one at the bar." byline="By Noor Abernathy · 8 min read" shot="Couple in a taxi, back seat, city lights" ratio="16/10" hint-size="100%,560px"></dc-import>
+          <div style="display:flex;flex-direction:column;gap:22px">
+            <dc-import name="SMStory" layout="row" size="md" thumb="150px" ratio="4/3" kicker="Sex" title="Sex After 40 Is a Better Party Than Anyone Told You" excerpt="Less performing, more requesting." shot="Silk robe on hotel chair" tone="blush" hint-size="100%,120px"></dc-import>
+            <dc-import name="SMStory" layout="row" size="md" thumb="150px" ratio="4/3" kicker="Breakups" title="The Situationship Exit Interview" excerpt="Closure is a gift you give yourself. Preferably in writing." shot="Lipstick note on mirror" tone="blush" hint-size="100%,120px"></dc-import>
+            <div style="background:#F6D6DC;padding:24px;display:flex;flex-direction:column;gap:12px">
+              <span style="font:600 10.5px/1 'Jost',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#A82E58">Ask Sugar · Advice Column</span>
+              <p style="margin:0;font:italic 500 22px/1.3 'Playfair Display',Georgia,serif;color:#2A0910">“My ex liked a photo from 2019. Do I respond, block, or post a better one?”</p>
+              <a href="#" style="font:600 10.5px/1 'Jost',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#3B0D18">Read Sugar’s answer →</a>
+            </div>
+          </div>
+        </div>
+        <div style="padding:0 24px 44px">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;padding-bottom:12px;border-bottom:1px solid rgba(59,13,24,.2);margin-bottom:22px"><h2 style="margin:0;font:600 22px/1 'Playfair Display',Georgia,serif;text-transform:uppercase;color:#2A0910">Latest in Sweet Talk</h2><span style="font:500 11px/1 'Jost',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#7A5F65">Sort: Newest</span></div>
+          <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:26px 22px">
+            <dc-import name="SMStory" size="sm" kicker="Dating" title="10 Date Night Ideas (That Aren’t Just Dinner)" excerpt="Karaoke counts. So does leaving early." shot="Neon bar, two coupes" hint-size="100%,330px"></dc-import>
+            <dc-import name="SMStory" size="sm" kicker="Relationships" title="Separate Bedrooms Saved Our Marriage" excerpt="And honestly, my sleep score." shot="Two made beds, morning light" hint-size="100%,330px"></dc-import>
+            <dc-import name="SMStory" size="sm" kicker="Sex" title="The Toys Worth Gifting Yourself This Season" excerpt="Tasteful packaging. Untasteful results." shot="Velvet box, ribbon" hint-size="100%,330px"></dc-import>
+            <dc-import name="SMStory" size="sm" kicker="Dating" title="Apps After 45: A Field Report From the Front Lines" excerpt="Fewer fish, better bait." shot="Phone, cocktail, red nails" hint-size="100%,330px"></dc-import>
+            <dc-import name="SMStory" size="sm" kicker="Breakups" title="How to Throw a Divorce Party People Talk About for Years" excerpt="Theme: “Unbothered.”" shot="Cake, sparklers" hint-size="100%,330px"></dc-import>
+            <dc-import name="SMStory" size="sm" kicker="Relationships" title="Your Friends Are Your Soulmates. Act Accordingly." excerpt="Long dinners required." shot="Women laughing, long table" hint-size="100%,330px"></dc-import>
+            <dc-import name="SMStory" size="sm" kicker="Ask Sugar" title="Is It Cheating If It’s Only Emotional?" excerpt="Sugar has thoughts. Many." shot="Phone glow in the dark" hint-size="100%,330px"></dc-import>
+            <dc-import name="SMStory" size="sm" kicker="Dating" title="The Second Date Rule We’re Officially Retiring" excerpt="Spoiler: wear the dress." shot="Red dress on hanger" hint-size="100%,330px"></dc-import>
+          </div>
+          <div style="display:flex;justify-content:center;margin-top:36px"><a href="#" style="border:1px solid #3B0D18;color:#3B0D18;font:600 11px/1 'Jost',sans-serif;letter-spacing:.16em;text-transform:uppercase;padding:15px 28px">More Sweet Talk</a></div>
+        </div>
+        <div style="padding:0 24px 44px"><dc-import name="SMPromos" hint-size="100%,220px"></dc-import></div>
+        <dc-import name="SMFooter" banner="{{ false }}" hint-size="100%,300px"></dc-import>
+      </div>
+    </div>
+
+    <div class="dv-opt" id="1b"><div class="dv-olabel"><a class="dv-oid" href="#1b">1b</a>Magazine index — text-led story river with sidebar</div>
+      <div class="dv-card" style="width:1280px;background:#FBF7F5">
+        <dc-import name="SMHeader" active="Sweet Talk" hint-size="100%,150px"></dc-import>
+        <section style="padding:56px 40px 36px;text-align:center;border-bottom:1px solid rgba(59,13,24,.15);display:flex;flex-direction:column;align-items:center;gap:14px">
+          <span style="font:600 11px/1 'Jost',sans-serif;letter-spacing:.3em;text-transform:uppercase;color:#C23A68">02 · On the Menu</span>
+          <h1 style="margin:0;font:800 128px/.85 'Playfair Display',Georgia,serif;text-transform:uppercase;letter-spacing:-.045em;color:#3B0D18">Sweet <em style="color:#C23A68">Talk</em></h1>
+          <p style="margin:0;max-width:560px;font:italic 400 22px/1.35 'Playfair Display',Georgia,serif;color:#5B4248">Dating, sex &amp; relationships — for women who stopped waiting for him to text back.</p>
+          <div style="display:flex;gap:28px;margin-top:10px;font:600 11px/1 'Jost',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#3B0D18"><a href="#" style="color:#C23A68;border-bottom:2px solid #C23A68;padding-bottom:6px">All</a><a href="#">Dating</a><a href="#">Sex</a><a href="#">Relationships</a><a href="#">Breakups</a><a href="#">Ask Sugar</a></div>
+        </section>
+        <div style="padding:40px;display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:56px">
+          <div style="display:flex;flex-direction:column">
+            <article style="display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:32px;padding-bottom:32px;border-bottom:1px solid rgba(59,13,24,.15)">
+              <div style="display:flex;flex-direction:column;gap:14px;justify-content:center"><span style="font:600 10.5px/1 'Jost',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#C23A68">The Big Talk</span><h2 style="margin:0;font:700 40px/1.02 'Playfair Display',Georgia,serif;color:#2A0910;text-wrap:balance">He Said He’s “Not Ready for Anything Serious.” Neither Is Your New Wardrobe.</h2><p style="margin:0;font:400 16px/1.6 'Libre Caslon Text',Georgia,serif;color:#5B4248">A field guide to dating in your next chapter — when you know exactly what you want.</p><span style="font:500 11px/1 'Jost',sans-serif;letter-spacing:.06em;color:#7A5F65">By Noor Abernathy · 8 min read</span></div>
+              <dc-import name="SMPh" label="Couple in taxi, city lights" ratio="3/4" tone="dark" hint-size="300px,400px"></dc-import>
+            </article>
+            <div style="display:flex;flex-direction:column;gap:26px;padding-top:28px">
+              <dc-import name="SMStory" layout="row" size="md" thumb="180px" ratio="3/2" kicker="Sex" title="Sex After 40 Is a Better Party Than Anyone Told You" excerpt="Less performing, more requesting. Seven women on the best sex of their lives." byline="By Simone Hart · 6 min" tone="blush" hint-size="100%,120px"></dc-import>
+              <dc-import name="SMStory" layout="row" size="md" thumb="180px" ratio="3/2" kicker="Breakups" title="The Situationship Exit Interview" excerpt="Closure is a gift you give yourself. Preferably in writing." byline="By Noor Abernathy · 5 min" tone="blush" hint-size="100%,120px"></dc-import>
+              <dc-import name="SMStory" layout="row" size="md" thumb="180px" ratio="3/2" kicker="Relationships" title="Separate Bedrooms Saved Our Marriage" excerpt="And honestly, my sleep score. Couples on the new rules of togetherness." byline="By Jo Whitfield · 7 min" tone="blush" hint-size="100%,120px"></dc-import>
+              <dc-import name="SMStory" layout="row" size="md" thumb="180px" ratio="3/2" kicker="Dating" title="Apps After 45: A Field Report From the Front Lines" excerpt="Fewer fish, better bait. What actually works when you’re done wasting time." byline="By Celeste Marlowe · 9 min" tone="blush" hint-size="100%,120px"></dc-import>
+              <dc-import name="SMStory" layout="row" size="md" thumb="180px" ratio="3/2" kicker="Breakups" title="How to Throw a Divorce Party People Talk About for Years" excerpt="Theme: “Unbothered.” Dress code: devastating." byline="By Simone Hart · 4 min" tone="blush" hint-size="100%,120px"></dc-import>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-top:36px;padding-top:20px;border-top:1px solid rgba(59,13,24,.15);font:600 11px/1 'Jost',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#3B0D18"><span style="color:#7A5F65">Page 1 of 6</span><a href="#" style="color:#C23A68">Next page →</a></div>
+          </div>
+          <aside style="display:flex;flex-direction:column;gap:28px">
+            <div style="background:#3B0D18;color:#FFFDFC;padding:24px">
+              <span style="font:600 10.5px/1 'Jost',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#F2709C">Ask Sugar</span>
+              <p style="margin:12px 0 16px;font:italic 500 21px/1.3 'Playfair Display',Georgia,serif">“My ex liked a photo from 2019. Do I respond?”</p>
+              <a href="#" style="font:600 10.5px/1 'Jost',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#F6D6DC">Read the answer →</a>
+              <div style="margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,253,252,.15);font:400 13px/1.5 'Libre Caslon Text',Georgia,serif;color:#EADADD">Got a question you can’t ask your group chat? <a href="#" style="color:#F2709C;text-decoration:underline">Ask Sugar anonymously.</a></div>
+            </div>
+            <div>
+              <div style="padding-bottom:10px;border-bottom:1px solid rgba(59,13,24,.2);font:600 18px/1 'Playfair Display',Georgia,serif;text-transform:uppercase;color:#2A0910">Most Read</div>
+              <dc-import name="SMItem" n="01" title="10 Date Night Ideas (That Aren’t Just Dinner)" kicker="Dating" hint-size="100%,86px"></dc-import>
+              <dc-import name="SMItem" n="02" title="Is It Cheating If It’s Only Emotional?" kicker="Ask Sugar" tone="dark" hint-size="100%,86px"></dc-import>
+              <dc-import name="SMItem" n="03" title="The Toys Worth Gifting Yourself" kicker="Sex" hint-size="100%,86px"></dc-import>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:6px;align-items:center"><span style="font:500 9.5px/1 'Jost',sans-serif;letter-spacing:.24em;text-transform:uppercase;color:#7A5F65">Advertisement</span><dc-import name="SMPh" label="Sponsor · 300 × 250" ratio="300/250" hint-size="100%,266px"></dc-import></div>
+            <div style="background:#F6D6DC;padding:22px;display:flex;flex-direction:column;gap:10px"><div style="font:700 24px/1 'Playfair Display',Georgia,serif;text-transform:uppercase;color:#3B0D18">The Sugar Dish</div><p style="margin:0;font:400 14px/1.5 'Libre Caslon Text',Georgia,serif;color:#5B4248">142 women are arguing about phone-snooping right now. Join them.</p><a href="#" style="align-self:flex-start;background:#F2709C;color:#2A0910;font:600 10.5px/1 'Jost',sans-serif;letter-spacing:.14em;text-transform:uppercase;padding:12px 16px">Get early access →</a></div>
+          </aside>
+        </div>
+        <dc-import name="SMFooter" hint-size="100%,620px"></dc-import>
+      </div>
+    </div>
+  </div>
+  <p class="dv-next">Try next: "<a class="dv-oid" href="#1a">1a</a> banner with the river from <a class="dv-oid" href="#1b">1b</a>" · "show this template as Sugar High" · "add a sponsored story slot"</p>
+</section>
+</x-dc>
+</body>
+</html>

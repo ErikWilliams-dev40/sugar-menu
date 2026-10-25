@@ -1,0 +1,31 @@
+:root {
+  --cherry: #3b0d18;
+  --cherry-deep: #2a0910;
+  --wine: #4a1422;
+  --wine-2: #5c1a2b;
+  --pink: #f2709c;
+  --pink-ink: #c23a68;
+  --pink-ink-2: #a82e58;
+  --blush: #f6d6dc;
+  --blush-2: #f0c2cc;
+  --blush-ph: #f1cbd3;
+  --champagne: #f4eae0;
+  --champagne-2: #e8d8c4;
+  --cream: #fbf7f5;
+  --paper: #fffdfc;
+  --body: #5b4248;
+  --body-2: #3a2328;
+  --muted: #7a5f65;
+  --on-dark: #f3e6e8;
+  --on-dark-2: #eadadd;
+  --rule: rgba(59, 13, 24, 0.16);
+  --rule-dark: rgba(255, 253, 252, 0.16);
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-body: "Libre Caslon Text", Georgia, serif;
+  --font-ui: "Jost", Arial, sans-serif;
+  --space-unit: 4px;
+  --shadow-print: 0 6px 16px rgba(59, 13, 24, 0.15);
+  --shadow-hero: 0 20px 50px rgba(0, 0, 0, 0.35);
+  --shadow-card: 0 8px 24px rgba(59, 13, 24, 0.08);
+  --shadow-modal: 0 40px 80px rgba(0, 0, 0, 0.4);
+}

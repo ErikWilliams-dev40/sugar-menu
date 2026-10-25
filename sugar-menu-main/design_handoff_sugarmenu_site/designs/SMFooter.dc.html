@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<sc-if value="{{ banner }}" hint-placeholder-val="{{ true }}">
+  <section style="position:relative;min-height:300px;background-color:#5C1A2B;background-image:repeating-linear-gradient(135deg,rgba(242,112,156,.14) 0 1px,transparent 1px 10px);display:flex;align-items:flex-end">
+    <span style="position:absolute;top:14px;right:16px;font:500 9.5px/1.35 ui-monospace,Menlo,monospace;color:#F6C3D2;text-transform:uppercase;letter-spacing:.04em">Sunset over palm-lined hills, pink haze</span>
+    <div style="position:relative;width:100%;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:32px;padding:80px 40px 40px;background:linear-gradient(to top,rgba(42,9,16,.88),rgba(42,9,16,0))">
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <span style="font:500 11px/1 'Jost',sans-serif;letter-spacing:.24em;text-transform:uppercase;color:#F6D6DC">A happier, hotter you.</span>
+        <h2 style="margin:0;font:700 clamp(40px,5vw,66px)/.95 'Playfair Display',Georgia,serif;letter-spacing:-.02em;color:#FFFDFC">More Good Days Ahead.</h2>
+      </div>
+      <div style="max-width:380px;display:flex;flex-direction:column;gap:12px">
+        <p style="margin:0;font:italic 400 21px/1.35 'Playfair Display',Georgia,serif;color:#FFFDFC">“SUGARMENU is my daily reminder that life can be both beautiful and real.”</p>
+        <span style="font:500 10.5px/1 'Jost',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#F6D6DC">— A Sugar Dish member</span>
+        <a href="#" style="align-self:flex-start;margin-top:4px;background:#F2709C;color:#2A0910;font:600 11px/1 'Jost',sans-serif;letter-spacing:.16em;text-transform:uppercase;padding:13px 20px">Join us →</a>
+      </div>
+    </div>
+  </section>
+</sc-if>
+<footer style="background:#2A0910;color:#EADADD;padding:56px 40px 28px;display:flex;flex-direction:column;gap:40px">
+  <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:40px">
+    <div style="flex:1 1 300px;display:flex;flex-direction:column;gap:12px">
+      <div style="font:800 44px/.9 'Playfair Display',Georgia,serif;letter-spacing:-.025em;color:#FFFDFC">SUGARMENU<span style="color:#F2709C">.</span></div>
+      <p style="margin:0;font:italic 400 19px/1.4 'Playfair Display',Georgia,serif;color:#F2709C">Consider this your permission slip.<br>The rest of your life is calling.</p>
+    </div>
+    <div style="flex:2 1 520px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;font:400 13.5px/1 'Libre Caslon Text',Georgia,serif">
+      <div style="display:flex;flex-direction:column;gap:11px"><span style="font:600 10px/1 'Jost',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#F2709C;margin-bottom:4px">The Menu</span><a href="#">Eye Candy</a><a href="#">Sweet Talk</a><a href="#">Sugar High</a><a href="#">Sugar Fix</a></div>
+      <div style="display:flex;flex-direction:column;gap:11px"><span style="font:600 10px/1 'Jost',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#F2709C;margin-bottom:4px">More</span><a href="#">The Sweet Spot</a><a href="#">Sugar Bytes</a><a href="#">The Sugar Rush</a><a href="#">GLProud</a></div>
+      <div style="display:flex;flex-direction:column;gap:11px"><span style="font:600 10px/1 'Jost',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#F2709C;margin-bottom:4px">Join</span><a href="#">The Sugar Dish</a><a href="#">Extra Sugar</a><a href="#">Sign in</a></div>
+      <div style="display:flex;flex-direction:column;gap:11px"><span style="font:600 10px/1 'Jost',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#F2709C;margin-bottom:4px">Company</span><a href="#">About</a><a href="#">Advertise</a><a href="#">Contact</a></div>
+    </div>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;padding-top:20px;border-top:1px solid rgba(234,218,221,.16);font:400 12px/1.4 'Jost',sans-serif;color:#CDB5BA">
+    <span>© 2026 SUGARMENU. Indulge yourself.</span>
+    <div style="display:flex;flex-wrap:wrap;gap:20px"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Accessibility</a><a href="#">Medical Disclaimer</a></div>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:620},&quot;banner&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  renderVals() { return { banner: this.props.banner ?? true }; }
+}
+</script>
+</body>
+</html>
