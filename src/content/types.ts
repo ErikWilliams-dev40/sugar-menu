@@ -1,66 +1,68 @@
 export interface Section {
-  readonly slug: string;
-  readonly name: string;
-  readonly eyebrow: string;
-  readonly description: string;
-  readonly shot: string;
+  slug: string;
+  name: string;
+  topics: string[];
+  description: string;
+  image: string;
 }
-
-export interface Author {
-  readonly name: string;
-  readonly bio: string;
-}
-
-export interface MedicalReview {
-  readonly name: string;
-  readonly credential: string;
-  readonly reviewedAt: string;
-}
-
-export type BodyBlock =
-  | { readonly type: "paragraph" | "heading" | "quote"; readonly text: string }
-  | {
-      readonly type: "image";
-      readonly src: string;
-      readonly alt: string;
-      readonly caption: string;
-    }
-  | { readonly type: "callout"; readonly title: string; readonly text: string };
-
 export interface Article {
-  readonly slug: string;
-  readonly section: string;
-  readonly subtopic: string;
-  readonly title: string;
-  readonly dek: string;
-  readonly author: Author;
-  readonly publishedAt: string;
-  readonly updatedAt: string;
-  readonly readMinutes: number;
-  readonly shot: string;
-  readonly body: readonly BodyBlock[];
-  readonly tags: readonly string[];
-  readonly relatedSlugs: readonly string[];
-  readonly medicalReview?: MedicalReview;
-  readonly sample: boolean;
+  slug: string;
+  category: string;
+  topic: string;
+  title: string;
+  dek: string;
+  shortVersion: string;
+  sections: { heading: string; text: string }[];
+  takeaways: string[];
+  sources: { title: string; url: string }[];
+  status: string;
+  image: string;
+  alt: string;
+  imageCredit: string;
+  authorSlug: string;
+  tags: string[];
+  publishedAt: string | null;
+  seoTitle: string;
+  seoDescription: string;
+  internalLinks: string[];
+  adult: boolean;
+  related: string[];
+  featured: boolean;
+  trending: boolean;
+  reviewStatus?: string;
 }
-
 export interface HeroSlide {
-  readonly id: string;
-  readonly eyebrow: string;
-  readonly headline: string;
-  readonly accent: string;
-  readonly copy: string;
-  readonly cta: string;
-  readonly href: string;
-  readonly shot: string;
+  eyebrow: string;
+  line1: string;
+  line2: string;
+  copy: string;
+  cta: string;
+  href: string;
+  image: string;
 }
-
-/** CMS implementations must return the same normalized, validated content. */
 export interface ContentRepository {
   getSections(): Promise<readonly Section[]>;
   getSection(slug: string): Promise<Section | undefined>;
   getArticles(section?: string): Promise<readonly Article[]>;
-  getArticle(slug: string): Promise<Article | undefined>;
+  getArticle(slug: string, section?: string): Promise<Article | undefined>;
   getHeroSlides(): Promise<readonly HeroSlide[]>;
+}
+export interface HomeModule {
+  id: string;
+  label: string;
+  visible: boolean;
+}
+export interface Publication {
+  tagline: string;
+  footerLine: string;
+  heroSeconds: number;
+}
+export interface SiteData {
+  categories: Section[];
+  articles: Article[];
+  heroes: HeroSlide[];
+  modules: HomeModule[];
+  authors: { slug: string; name: string; bio: string }[];
+  ad: { eyebrow: string; title: string; cta: string; href: string };
+  publication: Publication;
 }

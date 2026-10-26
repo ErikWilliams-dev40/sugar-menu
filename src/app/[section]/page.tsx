@@ -1,52 +1,57 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { content } from "@/content/repository";
-import { PageIntro } from "@/components/page-intro";
-import { StoryCard } from "@/components/story-card";
-
-type Props = { params: Promise<{ section: string }> };
-
+import { CategoryView } from "@/components/editorial-views";
+import { utilityPages, getUtilityPage } from "@/content/utility";
+type Props = {
+  params: Promise<{ section: string }>;
+  searchParams: Promise<{ topic?: string }>;
+};
 export async function generateStaticParams() {
-  return (await content.getSections())
-    .filter((section) => section.slug !== "glproud")
-    .map((section) => ({ section: section.slug }));
+  return [
+    ...(await content.getSections())
+      .filter(
+        (s) => !["glproud", "extra-sugar", "the-sugar-dish"].includes(s.slug),
+      )
+      .map((s) => ({ section: s.slug })),
+    ...Object.keys(utilityPages).map((section) => ({ section })),
+  ];
 }
-
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const section = await content.getSection((await params).section);
-  if (!section) notFound();
-  return { title: section.name, description: section.description };
+  const { section } = await params;
+  const category = await content.getSection(section),
+    utility = getUtilityPage(section);
+  if (!category && !utility) notFound();
+  return {
+    title: category?.name ?? utility!.title,
+    description: category?.description ?? utility!.intro,
+  };
 }
-
-export default async function SectionPage({ params }: Props) {
-  const section = await content.getSection((await params).section);
-  if (!section) notFound();
-  const articles = await content.getArticles(section.slug);
+export default async function SectionPage({ params, searchParams }: Props) {
+  const { section } = await params;
+  const utility = getUtilityPage(section);
+  if (utility)
+    return (
+      <article className="prose-page">
+        <span className="kicker">SUGARMENU · Editorial preview</span>
+        <h1>{utility!.title}</h1>
+        <p className="utility-intro">{utility!.intro}</p>
+        {utility.sections.map((s) => (
+          <section key={s.heading}>
+            <h2>{s.heading}</h2>
+            <p>{s.text}</p>
+          </section>
+        ))}
+      </article>
+    );
+  const category = await content.getSection(section);
+  if (!category) notFound();
+  const { topic } = await searchParams;
   return (
-    <>
-      <PageIntro
-        eyebrow={section.eyebrow}
-        title={section.name}
-        description={section.description}
-      />
-      <section className="container section-space">
-        <h2>Latest in {section.name}</h2>
-        {articles.length ? (
-          <div className="story-grid">
-            {articles.map((article) => (
-              <StoryCard key={article.slug} article={article} />
-            ))}
-          </div>
-        ) : (
-          <div className="empty-state">
-            <p className="eyebrow">Coming to the menu</p>
-            <p>
-              The first stories are on their way. Come back for a little more{" "}
-              {section.name}.
-            </p>
-          </div>
-        )}
-      </section>
-    </>
+    <CategoryView
+      category={category}
+      articles={await content.getArticles(section)}
+      topic={topic}
+    />
   );
 }

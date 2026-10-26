@@ -1,5 +1,7 @@
 # Phase 0 — application foundation
 
+> Historical scaffold record. The [recreation implementation](RECREATION.md) supersedes its visual, content, route and demo-form assumptions.
+
 Tracking: [#3](https://github.com/House-of-Helix-CMD/sugar-menu/issues/3).
 
 ## Starting point

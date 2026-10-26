@@ -1,0 +1,4 @@
+# Delivered source material is checked against SHA-256 manifests; store it
+# byte-for-byte, without line-ending normalization.
+SugarMenu-Recreation-Kit/** -text
+SugarMenu-Recreation-Prompt.txt -text

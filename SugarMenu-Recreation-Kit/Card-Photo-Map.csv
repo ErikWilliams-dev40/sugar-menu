@@ -1,0 +1,11 @@
+﻿card,route,jpeg_file,original_file,responsive_small_file,width,height,topics,description
+Eye Candy,/eye-candy,card-photos/01-eye-candy.jpg,public/images/style.webp,public/images/style-sm.webp,1536,1024,Fashion. Beauty. Style.,Statement looks. Effortless glam. The little things that make life prettier.
+Sweet Talk,/sweet-talk,card-photos/02-sweet-talk.jpg,public/images/hero-4.webp,public/images/hero-4-sm.webp,1536,1024,Dating. Sex. Relationships. Breakups.,Real conversations. Modern dating. Better boundaries. Happier you.
+Sugar High,/sugar-high,card-photos/03-sugar-high.jpg,public/images/hero-2.webp,public/images/hero-2-sm.webp,1536,1024,Travel. Hotels. Experiences.,Bucket lists. City guides. Weekend escapes and wilder getaways.
+Sugar Fix,/sugar-fix,card-photos/04-sugar-fix.jpg,public/images/dining.webp,public/images/dining-sm.webp,1536,1024,Food. Drinks. Dining.,Good food. Great drinks. Memorable meals. Life tastes better here.
+The Sweet Spot,/the-sweet-spot,card-photos/05-the-sweet-spot.jpg,public/images/wellness.webp,public/images/wellness-sm.webp,1536,1024,Fitness. Wellness. Mindset.,"Stronger habits. Calmer minds. A happier, hotter you — inside and out."
+Sugar Bytes,/sugar-bytes,card-photos/06-sugar-bytes.jpg,public/images/tech.webp,public/images/tech-sm.webp,1536,1024,Tech. AI. Gadgets.,Smart finds. Cool tools. The latest tech to make life sweeter.
+The Sugar Rush,/the-sugar-rush,card-photos/07-the-sugar-rush.jpg,public/images/hero-3.webp,public/images/hero-3-sm.webp,1536,1024,Culture. Celebrities. Trending.,"Pop culture. Entertainment. Obsessions, deep dives and everything worth talking about."
+GLProud,/glproud,card-photos/08-glproud.jpg,public/images/wellness.webp,public/images/wellness-sm.webp,1536,1024,Getting Started. Everyday Life. Questions to Ask.,"Your life is bigger than a prescription. Thoughtful resources, without the judgment."
+The Sugar Dish,/the-sugar-dish,card-photos/09-the-sugar-dish.jpg,public/images/hero-1.webp,public/images/hero-1-sm.webp,1536,1024,The community.,"Real women. Real stories. No filters. A place to belong, vent and celebrate."
+Extra Sugar,/extra-sugar,card-photos/10-extra-sugar.jpg,public/images/hero-5.webp,public/images/hero-5-sm.webp,1536,1024,The newsletter.,The best stories. The juiciest finds. A little more good taste in your inbox.

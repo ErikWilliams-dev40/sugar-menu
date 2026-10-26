@@ -1,0 +1,190 @@
+Recreate SUGARMENU — Indulge Yourself
+
+Build a faithful, responsive recreation of this existing editorial lifestyle website:
+https://sugarmenu-editorial.jack-o-might-3179.chatgpt.site/
+
+Use the attached SugarMenu-Recreation-Kit as the source of truth. Reproduce the existing brand, layout, content hierarchy, imagery and interactions. Build the website, including its category and article pages. The reference site is a lifestyle-first editorial publication with grown-woman confidence, wit, warmth and good taste. The emotional direction is an expensive glossy magazine, a candlelit hotel lounge and a bold new chapter in life. Keep the subject matter broad: fashion, relationships, travel, dining, wellness, technology, culture, community and a newsletter. GLProud is one supporting resource section within that larger publication.
+
+ASSETS AND SOURCE OF TRUTH
+
+The kit contains all 23 original served WebP files under public/images: nine landscape originals at 1536 x 1024, nine 480 x 320 variants, and five portrait mobile hero crops at 750 x 1100. Keep their filenames and use local asset paths. card-photos contains 10 convenient full-size JPEG exports, one clearly named for each homepage category. The Sweet Spot and GLProud deliberately share wellness.webp. These JPEGs are conversions of the served WebPs, rather than higher-resolution masters. The original WebPs preserve the site's original files.
+
+Use reference/categories.json for exact category names, order, topics, descriptions and image assignments; reference/heroes.json for all five slides' exact wording; reference/launch-articles.json for the 30 seed articles, headlines, decks, slugs, topics and body content. Use reference/original-styles.css for the exact CSS rules and breakpoint overrides. Card-Photo-Map.csv identifies every card's asset and URL. reference/article-image-map.csv identifies the article photo reuse. reference/original-image-prompts.json is a record of the original image-generation prompts; the existing attached files are already available and should be reused.
+
+The photography is original AI-generated editorial illustration. Retain that attribution in credits or the preview note. Do not represent the illustrated settings or products as verified on-location reporting or tested products.
+
+VISUAL SYSTEM
+
+Use these exact colors:
+- Black cherry #3b0d18: masthead, footer, dark feature bands, key text.
+- Deep burgundy #2a0910: darkest surfaces and ink.
+- Pink #f2709c: the masthead period and italic tagline; occasional highlights.
+- Pink ink #a82e58: small accent links.
+- Blush #f6d6dc: primary button fills and newsletter background.
+- Champagne #f4eae0: secondary panels.
+- Cream #fbf7f5: page background.
+- Paper #fffdfc: card surfaces and light text.
+- Body #5b4248 and muted #7a5f65: supporting copy.
+- Hairline borders: rgba(59,13,24,.17).
+
+Use the supplied fonts, keeping original filenames under public/fonts. Playfair is the display serif for the masthead, headings, headlines and italic emphasis; Jost is the sans serif for body copy, labels, navigation and buttons. Use Playfair italic for the tagline and italic display lines. Caslon is also supplied because the original hero deck explicitly uses Caslon,Georgia,serif; the main body is Jost after the final CSS overrides. Match the supplied reference CSS cascade rather than treating its earliest declarations as final. Body text has a 1.6 line height. Long article text should be at most 70ch wide.
+
+Use a 4/8 spacing rhythm: 4, 8, 16, 24, 32, 48, 64px. The primary page shell is centered, max-width 1440px, with 24px desktop gutters. Cards have 6px corners, fine subtle borders and paper-colored surfaces. Buttons have 4px corners, blush backgrounds, dark burgundy text, a restrained border, uppercase small Jost lettering and a minimum 44px touch target. Text links use a small uppercase label and a right arrow. Preserve a strongly editorial hierarchy, generous section spacing, thin rules, image-led cards and restrained motion.
+
+MASTHEAD AND NAVIGATION
+
+Use a sticky full-width black-cherry header. Center the oversized high-contrast Playfair wordmark 'SUGARMENU.' in paper white, with the final period in pink. Tighten letter spacing to about -.045em and use a heavy 800 weight. On a wide desktop the wordmark is approximately 68px, with an italic pink 'Indulge Yourself.' beneath it at about 28px. The desktop masthead is about 124px tall, followed by the navigation row.
+
+Place Search, a blush Subscribe button, and The Sugar Dish link in the upper-right action area. Below the masthead, show the 10 category links in their exact order, uppercase, widely tracked Jost with a faint top border. At 800px and below, hide the desktop category row, center a 43px wordmark with a 20px italic tagline, and place Search, Subscribe and Menu in a compact row beneath it. The header is about 116px tall. Menu opens a full-screen burgundy drawer with large Playfair category links, a close button, subscribe action and community link. Keep keyboard focus and Escape dismissal working.
+
+HOMEPAGE: EXACT STRUCTURE IN ORDER
+
+1. Five-slide photographic hero.
+2. The ten-card category menu grid.
+3. Just In: four editorial text teasers.
+4. Eye Candy editorial section.
+5. Sweet Talk editorial section.
+6. Sugar High editorial section.
+7. Full-width dark burgundy featured-story band.
+8. Sugar Fix editorial section.
+9. The Sweet Spot editorial section.
+10. Sugar Bytes editorial section.
+11. The Sugar Rush editorial section.
+12. Trending Now ranked list.
+13. The Sugar Dish community band.
+14. Extra Sugar newsletter band.
+15. GLProud supporting strip.
+16. Clearly labeled SUGARMENU house ad.
+17. Photographic closing banner.
+18. Full burgundy footer with category and utility links.
+
+HERO
+
+Make the hero full-bleed with edge-to-edge atmospheric photography, white display copy aligned on the left, a small tracked eyebrow, a supporting deck and a blush CTA. Keep all overlay text as live HTML. Desktop height is roughly 560px, growing to 600px on very wide screens; mobile is roughly 620px. Apply the original strong burgundy gradient: desktop linear-gradient(90deg,#2a0910f2 0%,#2a0910d9 50%,#2a09104d 100%); small mobile linear-gradient(0deg,#2a0910 0%,#2a0910e6 65%,#2a091073 100%).
+
+Use Playfair 800 uppercase headlines at roughly 66px desktop and clamp(32px,10.4vw,42px) on mobile, line-height 1.02, letter-spacing -.035em. The second headline line is italic. Desktop copy padding is about 50px 56px 112px, max width 780px. On small mobile use about 96px 24px 112px. The hero deck is about 18px desktop and 16px mobile.
+
+Use hero-1.webp through hero-5.webp in order, with the corresponding hero-N-mobile.webp selected below 560px. Keep the mobile crops' positioning and preserve the strong tonal shadows. Use the exact eyebrow, deck and CTA from reference/heroes.json. The headline pairs are:
+1. 'The old you called.' / 'We sent her to voicemail.' — Start your next chapter → /stories
+2. 'Your comfort zone? Adorable.' / 'Now leave it.' — Plan the escape → /sugar-high
+3. 'It’s not a comeback.' / 'It’s a takeover.' — Explore the takeover → /eye-candy
+4. 'Good taste.' / 'Questionable decisions. Great stories.' — Get the stories → /sweet-talk
+5. 'A little more pleasure.' / 'A lot less permission.' — Indulge yourself → /sugar-fix
+
+Place slide selectors 01–05, an 'N of 5' counter, previous/next controls, pause/resume and a slim progress indicator along the bottom. Autoplay every seven seconds with a subtle 600ms opacity fade. Pause on hover, keyboard focus and when the tab is hidden. Manual selection pauses autoplay. Support left/right keys and horizontal touch swipes. Disable automatic motion and fades when prefers-reduced-motion is enabled. Load slide one eagerly and defer the rest.
+
+CATEGORY MENU CARDS
+
+Render all ten cards in the exact order below. Wide desktop: five equal columns across two rows, 14px gaps, 18px top padding and 24px bottom padding. Between 561–800px: three columns. At 560px and below: two columns, 12px gaps, 14px page gutters. Preserve consistent card heights and readable wrapped titles. Use image areas approximately 154px tall on wide desktop, 150px on tablet and 140px on small mobile.
+
+Each card has a photo at the top with a dark bottom gradient, its white uppercase Playfair category name positioned about 11px from the bottom and 14px from the left. Below the photo, use a paper-white body containing a tiny uppercase topic line, a compact 12–13px description and an 'Explore →' link pinned near the bottom. Body padding is roughly 12px 14px 15px. The entire card links to its category route. Preserve the supplied photo composition using object-fit:cover. Do not bake the title into the image file.
+
+EXACT CARD DATA
+
+1. Eye Candy
+   URL: /eye-candy
+   Original photo: public/images/style.webp
+   Convenient JPEG: card-photos/01-eye-candy.jpg
+   Topics: Fashion. Beauty. Style.
+   Description: Statement looks. Effortless glam. The little things that make life prettier.
+
+2. Sweet Talk
+   URL: /sweet-talk
+   Original photo: public/images/hero-4.webp
+   Convenient JPEG: card-photos/02-sweet-talk.jpg
+   Topics: Dating. Sex. Relationships. Breakups.
+   Description: Real conversations. Modern dating. Better boundaries. Happier you.
+
+3. Sugar High
+   URL: /sugar-high
+   Original photo: public/images/hero-2.webp
+   Convenient JPEG: card-photos/03-sugar-high.jpg
+   Topics: Travel. Hotels. Experiences.
+   Description: Bucket lists. City guides. Weekend escapes and wilder getaways.
+
+4. Sugar Fix
+   URL: /sugar-fix
+   Original photo: public/images/dining.webp
+   Convenient JPEG: card-photos/04-sugar-fix.jpg
+   Topics: Food. Drinks. Dining.
+   Description: Good food. Great drinks. Memorable meals. Life tastes better here.
+
+5. The Sweet Spot
+   URL: /the-sweet-spot
+   Original photo: public/images/wellness.webp
+   Convenient JPEG: card-photos/05-the-sweet-spot.jpg
+   Topics: Fitness. Wellness. Mindset.
+   Description: Stronger habits. Calmer minds. A happier, hotter you — inside and out.
+
+6. Sugar Bytes
+   URL: /sugar-bytes
+   Original photo: public/images/tech.webp
+   Convenient JPEG: card-photos/06-sugar-bytes.jpg
+   Topics: Tech. AI. Gadgets.
+   Description: Smart finds. Cool tools. The latest tech to make life sweeter.
+
+7. The Sugar Rush
+   URL: /the-sugar-rush
+   Original photo: public/images/hero-3.webp
+   Convenient JPEG: card-photos/07-the-sugar-rush.jpg
+   Topics: Culture. Celebrities. Trending.
+   Description: Pop culture. Entertainment. Obsessions, deep dives and everything worth talking about.
+
+8. GLProud
+   URL: /glproud
+   Original photo: public/images/wellness.webp
+   Convenient JPEG: card-photos/08-glproud.jpg
+   Topics: Getting Started. Everyday Life. Questions to Ask.
+   Description: Your life is bigger than a prescription. Thoughtful resources, without the judgment.
+
+9. The Sugar Dish
+   URL: /the-sugar-dish
+   Original photo: public/images/hero-1.webp
+   Convenient JPEG: card-photos/09-the-sugar-dish.jpg
+   Topics: The community.
+   Description: Real women. Real stories. No filters. A place to belong, vent and celebrate.
+
+10. Extra Sugar
+   URL: /extra-sugar
+   Original photo: public/images/hero-5.webp
+   Convenient JPEG: card-photos/10-extra-sugar.jpg
+   Topics: The newsletter.
+   Description: The best stories. The juiciest finds. A little more good taste in your inbox.
+
+EDITORIAL MODULES
+
+Just In is a four-column text-only row on desktop with category kicker, Playfair headline and a short deck. Use the first four Eye Candy stories in the supplied seed data. Collapse to two columns at medium widths and one on small mobile.
+
+Each of the seven category editorial sections has a ruled header: uppercase Playfair section title on the left, small topic descriptors alongside it, and an 'All [category] →' link on the right. Allow 48px top and bottom spacing on desktop and 32px on mobile. Use one lead story on the left and smaller supporting stories on the right. The desktop layout uses 4fr/8fr columns with a 48px gap; supporting stories form two columns. The lead image is 3:2 and the compact story thumbnails are 4:5. Story cards show the category and topic, a roughly 23px Playfair headline, a short muted Jost deck, a 'Read the story →' link and reading time. On small mobile, use compact image/text rows: about 112px for a lead image and 80px for secondary images.
+
+The full-width burgundy featured-story band follows Sugar High. Use hero-2.webp and the headline 'The Long Weekend That Leaves Room to Wander.' with its supplied deck, eyebrow 'The featured edit', and CTA 'Make a little time for this →'. Place the photo on the left and large uppercase editorial copy on the right. Its photo caption is 'Somewhere better. Starting with you.' Stack on mobile. Keep the photo upright, matching the final CSS override.
+
+Trending Now is an elegant vertical list of five ranked story links with large serif numbers 01–05, headlines, category labels and dividing rules. It is text-led. Initial headlines, in order: 'Black Cherry Is Your New Neutral. Act Accordingly.', 'Make Your Phone a Little More Boring.', 'Rest Is Not a Reward.', 'Five Pieces. Plenty of Main-Character Energy.', and 'Your Skin Does Not Read Price Tags.'
+
+COMMUNITY, NEWSLETTER, GLPROUD, AD AND CLOSING
+
+The Sugar Dish is a full-width burgundy band with two columns on desktop. Left: 'Your next chapter deserves good company.', the large heading 'The Sugar Dish', the paragraph 'Honest conversations. Excellent recommendations. People who get it. Our community is taking shape — and there’s a seat with your name on it.', and a blush 'Save me a seat →' button. Right: a deep-burgundy bordered panel labeled 'A taste of what’s coming · sample conversations', with italic conversation prompts: 'I booked the solo trip. Now what do I pack?', 'A first date that wasn’t a job interview.', and 'The small win I’m making a big deal of.' Identify these as sample conversations and show 'Preview only. Member conversations open in phase two.'
+
+Extra Sugar is a full-width blush band, with 'A little extra. Just for you.', the heading 'Extra Sugar', the description 'The best stories, excellent distractions, and your next good idea.', and an email subscription form with an explicit unchecked consent box, a privacy link, a 'Sign me up →' button and helpful validation and success states. Stack these bands on mobile.
+
+GLProud is a smaller champagne-toned supporting panel. Use 'Knowledge. Without the judgment.', the GLProud name with italic Proud, 'Your life is bigger than a prescription.', a resource link and 'Meet GLProud →'. Preserve the current medical-review status from the supplied content; the source preview says 'Medical review required. Resources are in editorial development.' Keep the general-information disclaimer on relevant resource pages and do not invent a medical reviewer or reviewed status.
+
+Include the clearly labeled 'SUGARMENU house ad' with 'Good taste has good company.', 'Your brand. On the menu.' and 'Explore partnerships →'.
+
+The closing photo banner uses hero-2.webp with a dark overlay, the eyebrow 'Your next chapter looks delicious.', the headline 'More Good Days Ahead.' and a 'Pull up a chair →' button linking to /the-sugar-dish.
+
+FOOTER
+
+Use a deep black-cherry background, light text, pink wordmark period and large SUGARMENU. wordmark. Include 'Consider this your permission slip. The rest of your life is calling.' Group links under 'The Menu', 'A Little More' and 'Pull Up a Chair'. Include all ten categories plus About SugarMenu, Partner with us, Masthead, Contact, Newsletter archive and Editorial studio. Include copyright, Privacy, Terms, Accessibility, Medical disclaimer, Editorial independence and Cookie preferences. Preserve the small preview note: 'Private editorial preview · Original launch drafts · Illustrative AI-generated photography'.
+
+INNER PAGES AND FUNCTIONALITY
+
+Every category card and navigation item should open its correct route. Build category landing pages with a category intro, its photo, topic filters and editorial story cards. Build article pages at /[category]/[slug] using the supplied 30 seed articles. Match the large Playfair article title, deck, hero image, author/editor credit, reading time, breadcrumbs, readable Jost body, pull quotes, takeaways, related stories and inline newsletter treatment. Use the image mapping supplied in the seed data. Include a working /stories index and /search with keyword results. Search should be available from a labeled dialog in the masthead. Build the dedicated /the-sugar-dish and /extra-sugar pages and appropriate lightweight utility pages for footer destinations.
+
+Provide a dismissible privacy-choice panel, cream with a burgundy border, fixed at the lower left. It reads 'A little privacy. As it should be.' and explains essential access cookies and optional anonymous analytics, with Accept analytics, Reject analytics, Preferences and Cookie details controls. Remember the user's choice locally. Do not fire optional analytics before consent.
+
+Keep all forms and controls accessible with semantic elements, labels, visible keyboard focus, sufficient contrast, descriptive image alternatives where images carry information, decorative duplicates with empty alt text, and at least 44px interaction targets. Respect reduced motion. Avoid horizontal overflow at 390px, 768px, 1024px and 1440px.
+
+For a full implementation, preserve a private editorial studio concept for managing articles, hero order/timing, module order, ads, authors, subscribers and publication settings. Admin access must be authenticated. If there is no backend connected, provide a clearly labeled local demo and keep its state in browser storage. Newsletter and community submissions must show a truthful demo state until storage and an email service are configured; a UI-only recreation must not claim it sent email or created live community posts. Use the supplied article statuses as content metadata rather than implying reviewed reporting that does not exist.
+
+Use React with a routing framework if available. Keep brand tokens and reusable header, footer, carousel, category card, story card and newsletter components organized. Reuse the supplied original CSS where helpful, adapting paths to the target framework. Verify the completed homepage and one category/article flow at desktop and phone widths. The finished experience should closely match the reference site in palette, typography, image crops, density, hierarchy and copy.

@@ -15,3 +15,10 @@ next-env.d.ts
 .vercel/
 work/
 outputs/
+
+# Browser test artifacts.
+playwright-report/
+test-results/
+
+# Byte-identical nested copy inside the delivered recreation kit.
+SugarMenu-Recreation-Kit/SugarMenu-Recreation-Kit/
