@@ -1,55 +1,125 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { content } from "../src/content/repository.ts";
+import { existsSync, readFileSync } from "node:fs";
+import {
+  content,
+  articleUrl,
+  readingMinutes,
+  searchArticles,
+} from "../src/content/repository.ts";
+import { baseData } from "../src/content/fixtures.ts";
+import { validateStudio, moveItem } from "../src/lib/studio.ts";
 
-test("all navigation and hero destinations resolve to unique known routes", async () => {
-  const sections = await content.getSections();
-  const slides = await content.getHeroSlides();
-  const routes = sections.map((section) => `/${section.slug}`);
-  routes.push("/the-sugar-dish", "/extra-sugar");
-  assert.equal(new Set(routes).size, routes.length);
-  for (const section of sections) {
-    assert.match(section.slug, /^[a-z0-9]+(?:-[a-z0-9]+)*$/);
-    assert.equal((await content.getSection(section.slug))?.name, section.name);
-  }
-  assert.equal(slides.length, 5);
-  assert.equal(new Set(slides.map((slide) => slide.id)).size, slides.length);
-  for (const slide of slides)
-    assert.ok(routes.includes(slide.href), slide.href);
-});
-
-test("editorial fixtures have valid references and review attribution for GLProud", async () => {
-  const articles = await content.getArticles();
-  const slugs = new Set(articles.map((article) => article.slug));
-  assert.equal(slugs.size, articles.length);
-  for (const article of articles) {
-    assert.ok(await content.getSection(article.section), article.section);
-    assert.ok(article.body.length > 0);
-    assert.ok(article.author.name);
-    assert.ok(Number.isInteger(article.readMinutes) && article.readMinutes > 0);
-    assert.ok(Number.isFinite(Date.parse(article.publishedAt)));
-    assert.ok(Date.parse(article.updatedAt) >= Date.parse(article.publishedAt));
-    for (const related of article.relatedSlugs)
-      assert.ok(slugs.has(related), related);
-    if (article.section === "glproud") {
-      assert.ok(article.medicalReview?.name);
-      assert.ok(article.medicalReview?.credential);
+test("the runtime preserves the kit content and every original asset", async () => {
+  for (const [file, value] of [
+    ["categories", baseData.categories],
+    ["heroes", baseData.heroes],
+    ["launch-articles", baseData.articles],
+  ] as const)
+    assert.deepEqual(
+      value,
+      JSON.parse(
+        readFileSync(
+          new URL(
+            `../SugarMenu-Recreation-Kit/reference/${file}.json`,
+            import.meta.url,
+          ),
+          "utf8",
+        ),
+      ),
+    );
+  assert.equal(baseData.categories.length, 10);
+  assert.equal(baseData.heroes.length, 5);
+  assert.equal(baseData.articles.length, 30);
+  const routes = baseData.categories.map((s) => `/${s.slug}`);
+  assert.equal(new Set(routes).size, 10);
+  for (const slide of baseData.heroes) {
+    assert.ok([...routes, "/stories"].includes(slide.href));
+    for (const suffix of ["", "-sm", "-mobile"])
       assert.ok(
-        Number.isFinite(Date.parse(article.medicalReview?.reviewedAt ?? "")),
+        existsSync(
+          new URL(
+            `../public/images/${slide.image}${suffix}.webp`,
+            import.meta.url,
+          ),
+        ),
       );
+  }
+  for (const category of baseData.categories)
+    assert.ok(
+      existsSync(
+        new URL(`../public/images/${category.image}.webp`, import.meta.url),
+      ),
+    );
+});
+test("draft articles retain provenance, nullable dates, review status and valid references", async () => {
+  const articles = await content.getArticles();
+  const slugs = new Set(articles.map((a) => a.slug));
+  assert.equal(slugs.size, 30);
+  for (const a of articles) {
+    assert.ok(await content.getSection(a.category));
+    assert.ok(a.sections.length);
+    assert.ok(a.authorSlug);
+    assert.equal(a.status, "draft");
+    assert.equal(a.publishedAt, null);
+    assert.match(a.imageCredit, /AI-generated/);
+    assert.ok(readingMinutes(a) > 0);
+    assert.ok(
+      existsSync(new URL(`../public/images/${a.image}.webp`, import.meta.url)),
+    );
+    for (const slug of a.related) assert.ok(slugs.has(slug));
+    assert.equal(await content.getArticle(a.slug, a.category), a);
+    assert.equal(articleUrl(a), `/${a.category}/${a.slug}`);
+    if (a.category === "glproud") {
+      assert.equal(a.reviewStatus, "unreviewed");
+      assert.ok(a.sources.length);
+      assert.ok(!("medicalReview" in a));
     }
   }
 });
-
-test("content lookup distinguishes unknown routes from empty sections", async () => {
-  assert.equal(await content.getSection("not-a-section"), undefined);
-  assert.equal(await content.getArticle("not-a-story"), undefined);
-  assert.deepEqual(await content.getArticles("not-a-section"), []);
-  const articles = await content.getArticles();
-  for (const section of await content.getSections()) {
+test("lookups reject mismatched categories and distinguish empty results", async () => {
+  assert.equal(await content.getSection("missing"), undefined);
+  assert.equal(await content.getArticle("missing"), undefined);
+  assert.equal(
+    await content.getArticle("black-cherry-is-your-new-neutral", "sweet-talk"),
+    undefined,
+  );
+  assert.deepEqual(await content.getArticles("missing"), []);
+  for (const section of baseData.categories)
     assert.deepEqual(
       await content.getArticles(section.slug),
-      articles.filter((article) => article.section === section.slug),
+      baseData.articles.filter((a) => a.category === section.slug),
     );
-  }
+});
+test("keyword search is case-insensitive, prioritizes titles and handles empty input", () => {
+  assert.equal(
+    searchArticles("  BLACK CHERRY  ")[0]?.slug,
+    "black-cherry-is-your-new-neutral",
+  );
+  assert.equal(
+    searchArticles("phone boring")[0]?.slug,
+    "make-your-phone-boring",
+  );
+  assert.deepEqual(searchArticles(""), []);
+  assert.deepEqual(searchArticles("zzzz-no-such-story"), []);
+  assert.ok(
+    searchArticles("undertone").some(
+      (a) => a.slug === "black-cherry-is-your-new-neutral",
+    ),
+  );
+});
+test("studio validates saved content and preserves required editorial metadata", () => {
+  assert.ok(validateStudio(baseData));
+  const data = structuredClone(baseData);
+  data.articles[0].title = "An edited title";
+  data.heroes = moveItem(data.heroes, 0, 1);
+  assert.ok(validateStudio(data));
+  assert.notEqual(data.articles[0].title, baseData.articles[0].title);
+  data.ad.href = "javascript:alert(1)";
+  assert.equal(validateStudio(data), false);
+  data.ad.href = "/partnerships";
+  data.articles.find((a) => a.category === "glproud")!.reviewStatus =
+    "reviewed";
+  assert.equal(validateStudio(data), false);
+  assert.equal(validateStudio({}), false);
 });

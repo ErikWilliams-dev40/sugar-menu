@@ -1,60 +1,52 @@
 # SugarMenu
 
-SugarMenu ("Indulge Yourself.") is a lifestyle-first editorial publication. This repository contains its approved design handoff and the Phase 0 application foundation.
+SUGARMENU — “Indulge Yourself.” A responsive editorial publication recreated from the supplied SugarMenu kit, built with Next.js App Router, React, strict TypeScript and local assets.
 
 ## Run locally
 
-Use Node **24.19.0** (see `.nvmrc`) and npm **11.17.0**.
+Use Node **24.19.0** and npm **11.17.0**:
 
 ```sh
+nvm use
 npm ci
 npm run dev
 ```
 
-Open <http://localhost:3000>. No environment variables or service credentials are required. Fonts are self-hosted from installed Fontsource packages; the build does not fetch Google Fonts. `.env.example` documents the configuration boundary.
+Open <http://localhost:3000>. No service credentials are needed. All fonts and photography are served locally.
 
-## Local checks
+## What is included
+
+- The complete homepage: five-slide carousel, ten-category menu, editorial sections, featured story, trending list, community/newsletter bands, GLProud, house ad and closing photograph.
+- Eight editorial/resource category fronts, all 30 supplied draft articles, story index, keyword search, community/newsletter pages and lightweight utility pages.
+- Keyboard-accessible navigation/search dialogs, reduced-motion support, responsive photographs, demo signup forms and persistent privacy choices.
+- A browser-local `/studio` with content editing, hero/module ordering, display settings and local signup management. Saved changes appear only at `/studio/preview`; the main site always uses the kit baseline.
+
+This is a **local editorial preview**, not a production service. All supplied articles remain drafts with no invented publication dates. GLProud articles remain unreviewed and carry the medical-development notice. Photography is credited as AI-generated editorial illustration. Demo forms save only in this browser; they do not send email or create accounts. The studio is explicitly unauthenticated and has no publishing capability. All pages remain noindex, and robots.txt disallows crawling.
+
+## Verification
 
 ```sh
 npm run check
 npm run build
-npm start
+npm run test:e2e
 ```
 
-`check` runs ESLint, route-aware TypeScript checking, Node's test runner and Prettier. `build` verifies the production bundle and prerenders the content routes. `start` serves that build. Individual scripts: `lint`, `typecheck`, `test`, `format`, `format:check`.
+`check` runs ESLint, TypeScript, Node tests and Prettier. Browser tests use Playwright Chromium against the production build, automatically starting a server on port 3100. Install the browser once with `npx playwright install chromium` if needed. Tests save responsive screenshots under `test-results/` and an HTML report under `playwright-report/` (both ignored).
 
-With `npm start` running, use `npm run test:smoke` in another terminal to check
-every content route, real HTTP 404s, the health endpoint and robots policy.
-`SMOKE_BASE_URL` optionally selects a different local server port.
+To run the HTTP smoke suite, start the production server with `npm start`, then run `npm run test:smoke`. `SMOKE_BASE_URL` selects a different port.
 
-## Foundation
+## Project organization
 
-- Next.js App Router, React, strict TypeScript and npm with a committed lockfile.
-- Burgundy, blush and champagne design tokens; locally served Playfair Display, Libre Caslon Text and Jost.
-- Responsive header, section navigation, footer, skip link, focus styles and photography placeholders.
-- Home, seven category fronts, GLProud, The Sugar Dish, Extra Sugar and a sample article.
-- A typed asynchronous content repository backed by local fixtures, ready for a future CMS adapter.
-- Per-route metadata, deliberate 404 handling and a minimal `/api/health` liveness endpoint.
+- `src/app/`: routes, metadata, reference CSS and framework/accessibility refinements.
+- `src/styles/tokens.css`: reference palette and spacing tokens; supplied sRGB colors remain the baseline.
+- `src/components/`: shared editorial views and interactive components.
+- `src/content/`: unchanged seed JSON, typed repository, home configuration and provisional utility copy.
+- `src/lib/`: validated local studio storage and demo signup storage.
+- `public/`: the kit's original WebPs and fonts, retaining filenames.
+- `tests/`: content/contracts, HTTP smoke checks and browser scenarios.
 
-This is a scaffold, not the complete MVP. The home uses the first approved hero's copy in a static split layout; the five-slide carousel and the handoff's full layouts remain future work. Newsletter and community routes are previews with no submission forms. GLProud contains no invented clinical reviewers or medical articles. All pages are `noindex, nofollow`, and `robots.txt` disallows crawling while sample content is present.
+See [recreation notes](docs/RECREATION.md) for routes, provenance and demo storage behavior. [Phase 0](docs/PHASE_0.md) records the historical scaffold; the recreation kit now supersedes its visual and content assumptions.
 
-## Layout
+## Delivery
 
-| Path                             | Purpose                                                  |
-| -------------------------------- | -------------------------------------------------------- |
-| `src/app/`                       | Routes, metadata, root layout and global styles          |
-| `src/components/`                | Shared presentation components                           |
-| `src/styles/tokens.css`          | Approved brand palette, type and shadow tokens           |
-| `src/content/`                   | Content types, local fixtures and repository boundary    |
-| `tests/`                         | Content integrity and endpoint contracts                 |
-| `design_handoff_sugarmenu_site/` | Design references; never imported as application runtime |
-| `.github/workflows/`             | Existing delivery lifecycle workflows                    |
-| `docs/PHASE_0.md`                | Scope, decisions, route map and follow-up work           |
-
-## Delivery status
-
-Work is tracked in [issue #3](https://github.com/House-of-Helix-CMD/sugar-menu/issues/3). Follow [CONTRIBUTING.md](CONTRIBUTING.md) and [the lifecycle](docs/LIFECYCLE.md): use an issue-linked branch and a reviewed pull request.
-
-The existing remote lint/test jobs still check only the design runtime's JavaScript syntax. They **do not run the new application checks**, and there is no build job yet. Workflow integration must ship in its own PR under repository rules. The existing deploy/rollback placeholders deliberately fail until a host is chosen and real commands are supplied. Local checks passing is not deployment approval.
-
-See the [design handoff](design_handoff_sugarmenu_site/README.md) for the full product and interaction requirements, and [Phase 0 notes](docs/PHASE_0.md) for the remaining decisions.
+Follow [CONTRIBUTING.md](CONTRIBUTING.md) and [the delivery lifecycle](docs/LIFECYCLE.md). Workflow changes ship separately. Existing remote workflows do not run these application checks; record local validation in the feature PR. Hosting, real authentication, CMS, email delivery, reviewed policies and production deployment remain separate work.

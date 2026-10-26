@@ -1,0 +1,20 @@
+{
+  "tool": "Built-in image_gen",
+  "heroPrefix": "Create one photorealistic luxury lifestyle magazine website background photograph, landscape 1536x1024.",
+  "heroSuffix": "Palette: black cherry #3B0D18, deep burgundy, blush pink and champagne gold. Rich elegant warm light, tactile details, photographic realism. Composition with objects grouped on the right 60%, darker quiet negative space on the left for live HTML headline. No text, no typography, no logos, no watermark, no collage, no borders. This is only an editorial photograph, not a website mockup.",
+  "heroes": [
+    "Pink coupe cocktail with cherries, burgundy passport, sunglasses and stacked cream books on a dark velvet table; Paris-style city skyline at rose dusk through a window.",
+    "Amalfi coast balcony overlooking the sea at sunset, coral spritz, sunglasses and blush carry-on luggage; lush bougainvillea and champagne stone.",
+    "Champagne coupe, stacked fashion books, black sunglasses and a quilted burgundy handbag on a rich mahogany console, glittering city skyline at dusk.",
+    "Crystal martini glass, burgundy lipstick and unbranded cream matchbook on a candlelit bar, dark red velvet booth and golden lamps.",
+    "Perfume bottle, brass hotel key tag, pink cocktail and a small travel photograph on burgundy velvet in an intimate luxury hotel room."
+  ],
+  "editorialPrefix": "Photorealistic luxury lifestyle magazine editorial still-life photograph, landscape 1536x1024.",
+  "editorialSuffix": "Warm natural photographic lighting, refined feminine aesthetic, tactile materials, palette of black cherry burgundy, blush pink, champagne, cream. Rich sophisticated composition. No text, logos, typography, watermarks or borders. Not a website mockup.",
+  "editorial": {
+    "style": "A burgundy lipstick in gold casing, an unbranded blush compact, pearl earrings and a folded silk scarf on black cherry velvet.",
+    "dining": "A beautiful plate of fresh tagliatelle in a candlelit Italian restaurant, cream linen, delicate wine glass, warm burgundy and blush accents.",
+    "wellness": "A blush silk sleep mask on soft champagne linen, neatly rolled towel, a small unbranded amber bottle and pink light through sheer curtains.",
+    "tech": "An elegant open slim laptop with blank dark screen, a blush notebook, burgundy pen and an espresso on a warm cream desk beside soft curtains."
+  }
+}

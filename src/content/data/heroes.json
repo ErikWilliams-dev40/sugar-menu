@@ -1,0 +1,47 @@
+[
+  {
+    "eyebrow": "A brighter chapter awaits.",
+    "line1": "The old you called.",
+    "line2": "We sent her to voicemail.",
+    "copy": "New places. New experiences. New possibilities. Some calls just aren’t worth taking.",
+    "cta": "Start your next chapter",
+    "href": "/stories",
+    "image": "hero-1"
+  },
+  {
+    "eyebrow": "Go somewhere better.",
+    "line1": "Your comfort zone? Adorable.",
+    "line2": "Now leave it.",
+    "copy": "Better stories rarely start with staying home. There’s a whole world on the menu.",
+    "cta": "Plan the escape",
+    "href": "/sugar-high",
+    "image": "hero-2"
+  },
+  {
+    "eyebrow": "A bolder era begins.",
+    "line1": "It’s not a comeback.",
+    "line2": "It’s a takeover.",
+    "copy": "A brighter life. Bigger plans. Better taste. This is your era now.",
+    "cta": "Explore the takeover",
+    "href": "/eye-candy",
+    "image": "hero-3"
+  },
+  {
+    "eyebrow": "Indulge a little.",
+    "line1": "Good taste.",
+    "line2": "Questionable decisions. Great stories.",
+    "copy": "The best nights, best trips and best stories rarely come with an instruction manual.",
+    "cta": "Get the stories",
+    "href": "/sweet-talk",
+    "image": "hero-4"
+  },
+  {
+    "eyebrow": "No more waiting around.",
+    "line1": "A little more pleasure.",
+    "line2": "A lot less permission.",
+    "copy": "Go. Stay. Splurge. Change your mind. You don’t need a permission slip to enjoy your life.",
+    "cta": "Indulge yourself",
+    "href": "/sugar-fix",
+    "image": "hero-5"
+  }
+]

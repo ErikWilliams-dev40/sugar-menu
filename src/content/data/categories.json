@@ -1,0 +1,72 @@
+[
+  {
+    "slug": "eye-candy",
+    "name": "Eye Candy",
+    "topics": ["Fashion", "Beauty", "Style"],
+    "description": "Statement looks. Effortless glam. The little things that make life prettier.",
+    "image": "style"
+  },
+  {
+    "slug": "sweet-talk",
+    "name": "Sweet Talk",
+    "topics": ["Dating", "Sex", "Relationships", "Breakups"],
+    "description": "Real conversations. Modern dating. Better boundaries. Happier you.",
+    "image": "hero-4"
+  },
+  {
+    "slug": "sugar-high",
+    "name": "Sugar High",
+    "topics": ["Travel", "Hotels", "Experiences"],
+    "description": "Bucket lists. City guides. Weekend escapes and wilder getaways.",
+    "image": "hero-2"
+  },
+  {
+    "slug": "sugar-fix",
+    "name": "Sugar Fix",
+    "topics": ["Food", "Drinks", "Dining"],
+    "description": "Good food. Great drinks. Memorable meals. Life tastes better here.",
+    "image": "dining"
+  },
+  {
+    "slug": "the-sweet-spot",
+    "name": "The Sweet Spot",
+    "topics": ["Fitness", "Wellness", "Mindset"],
+    "description": "Stronger habits. Calmer minds. A happier, hotter you — inside and out.",
+    "image": "wellness"
+  },
+  {
+    "slug": "sugar-bytes",
+    "name": "Sugar Bytes",
+    "topics": ["Tech", "AI", "Gadgets"],
+    "description": "Smart finds. Cool tools. The latest tech to make life sweeter.",
+    "image": "tech"
+  },
+  {
+    "slug": "the-sugar-rush",
+    "name": "The Sugar Rush",
+    "topics": ["Culture", "Celebrities", "Trending"],
+    "description": "Pop culture. Entertainment. Obsessions, deep dives and everything worth talking about.",
+    "image": "hero-3"
+  },
+  {
+    "slug": "glproud",
+    "name": "GLProud",
+    "topics": ["Getting Started", "Everyday Life", "Questions to Ask"],
+    "description": "Your life is bigger than a prescription. Thoughtful resources, without the judgment.",
+    "image": "wellness"
+  },
+  {
+    "slug": "the-sugar-dish",
+    "name": "The Sugar Dish",
+    "topics": ["The community"],
+    "description": "Real women. Real stories. No filters. A place to belong, vent and celebrate.",
+    "image": "hero-1"
+  },
+  {
+    "slug": "extra-sugar",
+    "name": "Extra Sugar",
+    "topics": ["The newsletter"],
+    "description": "The best stories. The juiciest finds. A little more good taste in your inbox.",
+    "image": "hero-5"
+  }
+]
