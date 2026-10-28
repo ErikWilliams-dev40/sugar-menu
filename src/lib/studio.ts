@@ -72,6 +72,12 @@ export function validateStudio(value: unknown): value is SiteData {
           a.sections.length > 0 &&
           a.sections.every((s) => fields(s, ["heading", "text"])) &&
           strings(a.takeaways) &&
+          a.reviewer == null &&
+          (a.quickAnswer == null || typeof a.quickAnswer === "string") &&
+          (a.updatedAt == null || typeof a.updatedAt === "string") &&
+          (a.faq == null ||
+            (Array.isArray(a.faq) &&
+              a.faq.every((item) => fields(item, ["question", "answer"])))) &&
           Array.isArray(a.sources) &&
           a.sources.every(
             (s) => fields(s, ["title", "url"]) && /^https:\/\//.test(s.url),

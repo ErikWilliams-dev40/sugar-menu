@@ -121,5 +121,10 @@ test("studio validates saved content and preserves required editorial metadata",
   data.articles.find((a) => a.category === "glproud")!.reviewStatus =
     "reviewed";
   assert.equal(validateStudio(data), false);
+  const reviewed = structuredClone(baseData);
+  reviewed.articles.find((a) => a.category === "glproud")!.reviewer = {
+    name: "Not a supplied reviewer",
+  };
+  assert.equal(validateStudio(reviewed), false);
   assert.equal(validateStudio({}), false);
 });

@@ -17,7 +17,10 @@ export function StoryCard({
   return (
     <article className={`story${compact ? " row-story" : ""}`}>
       <Link className="story-image" href={url} tabIndex={-1} aria-hidden="true">
-        <EditorialImage name={article.image} />
+        <EditorialImage
+          name={article.image}
+          sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw"
+        />
       </Link>
       <div>
         <div className="kicker">

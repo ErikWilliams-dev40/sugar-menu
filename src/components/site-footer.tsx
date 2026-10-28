@@ -48,6 +48,9 @@ export function SiteFooter({
             ["accessibility", "Accessibility"],
             ["medical-disclaimer", "Medical disclaimer"],
             ["editorial-independence", "Editorial independence"],
+            ["editorial-standards", "Editorial standards"],
+            ["medical-review", "Medical review"],
+            ["corrections", "Corrections"],
           ].map(([slug, label]) => (
             <Link key={slug} href={`/${slug}`}>
               {label}

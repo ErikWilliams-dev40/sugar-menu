@@ -182,6 +182,57 @@ section[id] {
 .breadcrumbs {
   overflow-wrap: anywhere;
 }
+.breadcrumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35em 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.breadcrumbs li:not(:last-child)::after {
+  content: "/";
+  margin-left: 0.35em;
+}
+.quick-answer {
+  margin: 16px 0;
+  padding: 16px 18px;
+  background: var(--champagne);
+  border-radius: var(--radius);
+}
+.quick-answer h2 {
+  font:
+    12px Jost,
+    Arial,
+    sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0 0 8px;
+}
+.quick-answer p {
+  margin: 0;
+}
+.guide-links {
+  margin: 28px 0;
+  padding: 16px 18px;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+}
+.guide-links ul {
+  margin: 12px 0 0;
+  padding-left: 1.1em;
+}
+.guide-links a {
+  text-decoration: underline;
+}
+.byline a,
+.author-box a,
+.prose-page li a {
+  text-decoration: underline;
+}
+.dates {
+  margin-top: 6px;
+}
 .article-photo figcaption {
   line-height: 1.6;
 }

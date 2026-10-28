@@ -1,9 +1,12 @@
 import { searchArticles } from "@/content/repository";
 import { StoryCard } from "@/components/story-card";
-export const metadata = {
+import { pageMetadata } from "@/lib/metadata";
+export const metadata = pageMetadata({
   title: "Search",
   description: "Find your next good read on SUGARMENU.",
-};
+  path: "/search",
+  index: false,
+});
 export default async function Search({
   searchParams,
 }: {
@@ -40,6 +43,7 @@ export default async function Search({
             ? `${results.length} ${results.length === 1 ? "result" : "results"} for “${query}”`
             : "Enter a keyword to explore our stories."}
         </p>
+        <h2 className="sr-only">Results</h2>
         <div className="story-grid three">
           {results.map((a) => (
             <StoryCard key={a.slug} article={a} />

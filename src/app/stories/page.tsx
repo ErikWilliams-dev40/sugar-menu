@@ -1,10 +1,25 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { content } from "@/content/repository";
 import { StoryCard } from "@/components/story-card";
-export const metadata = {
-  title: "All stories",
-  description: "A little more life. Explore the SUGARMENU reading room.",
-};
+import { Breadcrumbs } from "@/components/breadcrumbs";
+import { JsonLd } from "@/components/json-ld";
+import { pageMetadata } from "@/lib/metadata";
+import { collectionStructuredData } from "@/lib/seo";
+import { readSiteConfig } from "@/lib/site";
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams: Promise<{ category?: string }>;
+}): Promise<Metadata> {
+  const category = (await searchParams).category;
+  return pageMetadata({
+    title: "All stories",
+    description: "A little more life. Explore the SUGARMENU reading room.",
+    path: "/stories",
+    index: category ? false : undefined,
+  });
+}
 export default async function Stories({
   searchParams,
 }: {
@@ -13,8 +28,25 @@ export default async function Stories({
   const { category } = await searchParams;
   const articles = await content.getArticles(category);
   const categories = (await content.getSections()).slice(0, 8);
+  const crumbs = [
+    { name: "Home", path: "/" },
+    { name: "The reading room", path: "/stories" },
+  ];
   return (
     <>
+      <JsonLd
+        data={collectionStructuredData(
+          {
+            name: "The reading room",
+            description:
+              "A little more life. Explore the SUGARMENU reading room.",
+            path: "/stories",
+            crumbs,
+          },
+          readSiteConfig(),
+        )}
+      />
+      <Breadcrumbs items={crumbs} />
       <header className="page-intro">
         <span className="kicker">Something for every appetite</span>
         <h1>The reading room</h1>
@@ -38,6 +70,7 @@ export default async function Stories({
         <p className="result-count">
           {articles.length} stories · Original launch drafts
         </p>
+        <h2 className="sr-only">Stories</h2>
         <div className="story-grid three">
           {articles.map((a) => (
             <StoryCard

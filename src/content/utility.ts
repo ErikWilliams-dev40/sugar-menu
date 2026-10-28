@@ -14,6 +14,75 @@ export const utilityPages: Record<
         heading: "A little more life",
         text: "SUGARMENU is a lifestyle-first editorial publication exploring fashion, relationships, travel, dining, wellness, technology, culture and community. This is a private editorial preview of original launch drafts.",
       },
+      {
+        heading: "Still to be supplied",
+        text: "Ownership, a public mailing address, and a fuller mission statement have not been supplied. Editorial standards, the medical review policy, and corrections each have their own page and are waiting on the same team copy.",
+      },
+    ],
+  },
+  "editorial-standards": {
+    title: "Editorial standards",
+    intro:
+      "How SUGARMENU assigns, edits, sources, and labels stories. This copy has not been supplied.",
+    sections: [
+      {
+        heading: "Reporting and editing",
+        text: "The editorial team has not published how stories are assigned, edited, or approved. No standard is claimed on this page until that copy is supplied.",
+      },
+      {
+        heading: "Sources",
+        text: "The editorial team has not published how sources are chosen or shown. Stories that already list sources show those links from the content record.",
+      },
+      {
+        heading: "Sponsored placements",
+        text: "The editorial team has not published how paid placements will be labeled. The advertisement in this preview is a SUGARMENU house ad.",
+      },
+      {
+        heading: "Corrections",
+        text: "The corrections page describes the request path. That process has not been supplied.",
+      },
+    ],
+  },
+  "medical-review": {
+    title: "Medical review policy",
+    intro:
+      "How GLProud resources are reviewed before publication. No reviewer roster or review standard has been supplied.",
+    sections: [
+      {
+        heading: "What is reviewed",
+        text: "GLProud drafts are unreviewed. This page will name which pages require clinical review once the team supplies that list. The current guide is the GLP-1 section already on the site.",
+      },
+      {
+        heading: "Who reviews",
+        text: "No clinical reviewer, credential, or advisory board is on file. This page will not name a reviewer until the team supplies one.",
+      },
+      {
+        heading: "How a review is shown",
+        text: "A GLP-1 Guide story shows “Medically reviewed by” only when its content record includes a real reviewer. Unreviewed drafts do not show that line.",
+      },
+      {
+        heading: "What this site does not do",
+        text: "Nothing on this site is individual medical advice. The medical disclaimer describes that limit.",
+      },
+    ],
+  },
+  corrections: {
+    title: "Corrections",
+    intro:
+      "How to request a correction. Contact details and the review process have not been supplied.",
+    sections: [
+      {
+        heading: "What you can request",
+        text: "This page will explain which errors SUGARMENU corrects. That policy has not been supplied.",
+      },
+      {
+        heading: "How to send a request",
+        text: "No corrections inbox is configured. Do not send personal information through the demo forms. The contact page states that no public address is configured.",
+      },
+      {
+        heading: "What happens next",
+        text: "The team has not published how a request is logged, reviewed, or noted on a story.",
+      },
     ],
   },
   partnerships: {
@@ -125,6 +194,24 @@ export const utilityPages: Record<
     ],
   },
 };
+export const newsletterFaq = [
+  {
+    question: "Will this send me an email?",
+    answer:
+      "No. Your demo signup is stored only in this browser. A live subscription service is not configured.",
+  },
+  {
+    question: "Where are previous editions?",
+    answer:
+      "There are no published editions yet. The newsletter archive describes its current status.",
+  },
+  {
+    question: "How do I remove my demo signup?",
+    answer:
+      "Use the local signup records panel in the editorial studio demo, or clear this site’s browser storage.",
+  },
+] as const;
+
 export const utilityLinks = Object.entries(utilityPages).map(
   ([slug, page]) => ({ href: `/${slug}`, label: page.title }),
 );
