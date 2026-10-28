@@ -1,10 +1,13 @@
 import { EditorialImage } from "@/components/editorial-image";
 import { DishPreview } from "@/components/editorial-views";
 import { SignupForm } from "@/components/signup-form";
-export const metadata = {
+import { pageMetadata } from "@/lib/metadata";
+export const metadata = pageMetadata({
   title: "The Sugar Dish",
   description: "Your next chapter deserves good company.",
-};
+  path: "/the-sugar-dish",
+  index: false,
+});
 export default function SugarDish() {
   return (
     <>
@@ -24,7 +27,11 @@ export default function SugarDish() {
             Save me a seat →
           </a>
         </div>
-        <EditorialImage name="hero-1" eager />
+        <EditorialImage
+          name="hero-1"
+          eager
+          sizes="(max-width: 800px) 100vw, 50vw"
+        />
       </section>
       <section className="inner-shell">
         <h2 className="section-heading">A taste of what’s coming</h2>

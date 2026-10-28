@@ -1,7 +1,8 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { GET } from "../src/app/api/health/route.ts";
-import robots from "../src/app/robots.ts";
+import { robotsPolicy } from "../src/lib/seo.ts";
+import { readSiteConfig } from "../src/lib/site.ts";
 
 test("health probe exposes only liveness and cannot be cached", async () => {
   const response = GET();
@@ -11,5 +12,9 @@ test("health probe exposes only liveness and cannot be cached", async () => {
 });
 
 test("the sample-content scaffold opts out of crawling", () => {
-  assert.deepEqual(robots().rules, { userAgent: "*", disallow: "/" });
+  const policy = robotsPolicy(readSiteConfig({}));
+  assert.equal(policy.rules[0]?.userAgent, "*");
+  assert.equal(policy.rules[0]?.disallow, "/");
+  assert.equal(policy.rules[1]?.disallow, "/");
+  assert.match(policy.sitemap, /\/sitemap\.xml$/);
 });

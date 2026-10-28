@@ -1,10 +1,25 @@
 import Link from "next/link";
 import type { Article, Section, SiteData } from "@/content/types";
+import { guideArticleSlugs } from "@/content/guide-links";
 import { articleUrl, readingMinutes } from "@/content/repository";
+import { normalizePath } from "@/lib/redirects";
+import {
+  articleStructuredData,
+  categoryCrumbs,
+  collectionStructuredData,
+  faqStructuredData,
+  formatDate,
+  hasClinicalReviewer,
+  visibleFaq,
+} from "@/lib/seo";
+import { readSiteConfig } from "@/lib/site";
+import { Breadcrumbs } from "./breadcrumbs";
 import { EditorialImage } from "./editorial-image";
+import { JsonLd } from "./json-ld";
 import { StoryCard } from "./story-card";
 import { SignupForm } from "./signup-form";
 import { HeroCarousel } from "./hero-carousel";
+import { TrackedLink, TrackView } from "./track";
 export const medicalNotice =
   "Medical review required. Resources are in editorial development.";
 export function MedicalNotice() {
@@ -262,14 +277,25 @@ export function HomeView({
                 <p>Your life is bigger than a prescription.</p>
               </div>
               <div>
-                <Link href="/glproud/what-glp-one-medicines-actually-do">
+                <TrackedLink
+                  href="/glproud/what-glp-one-medicines-actually-do"
+                  event={{
+                    name: "glp1_guide_engagement",
+                    slug: "what-glp-one-medicines-actually-do",
+                    surface: "module",
+                  }}
+                >
                   What GLP-1 Medicines Actually Do. →
-                </Link>
+                </TrackedLink>
                 <span className="meta">{medicalNotice}</span>
               </div>
-              <Link className="button" href="/glproud">
+              <TrackedLink
+                className="button"
+                href="/glproud"
+                event={{ name: "glp1_guide_engagement", surface: "module" }}
+              >
                 Meet GLProud →
-              </Link>
+              </TrackedLink>
             </section>
           </div>
         );
@@ -281,9 +307,17 @@ export function HomeView({
               <div>
                 <span className="kicker">{data.ad.eyebrow}</span>
                 <h2>{data.ad.title}</h2>
-                <Link className="text-link" href={data.ad.href}>
+                <TrackedLink
+                  className="text-link"
+                  href={data.ad.href}
+                  event={{
+                    name: "sponsored_placement_click",
+                    href: data.ad.href,
+                    label: data.ad.title,
+                  }}
+                >
                   {data.ad.cta} →
-                </Link>
+                </TrackedLink>
               </div>
             </aside>
           </div>
@@ -330,8 +364,33 @@ export function CategoryView({
   topic?: string;
 }) {
   const filtered = topic ? articles.filter((a) => a.topic === topic) : articles;
+  const crumbs = categoryCrumbs(category);
   return (
     <>
+      <TrackView
+        event={{
+          name: "category_engagement",
+          category: category.slug,
+          ...(topic ? { topic } : {}),
+        }}
+      />
+      {category.slug === "glproud" && (
+        <TrackView
+          event={{ name: "glp1_guide_engagement", surface: "front" }}
+        />
+      )}
+      <JsonLd
+        data={collectionStructuredData(
+          {
+            name: category.name,
+            description: category.description,
+            path: `/${category.slug}`,
+            crumbs,
+          },
+          readSiteConfig(),
+        )}
+      />
+      <Breadcrumbs items={crumbs} />
       <section className="category-banner">
         <div>
           <span className="eyebrow">{category.topics.join(" · ")}</span>
@@ -346,7 +405,11 @@ export function CategoryView({
           </h1>
           <p>{category.description}</p>
         </div>
-        <EditorialImage name={category.image} eager />
+        <EditorialImage
+          name={category.image}
+          eager
+          sizes="(max-width: 800px) 100vw, 50vw"
+        />
       </section>
       <div className="inner-shell">
         {category.slug === "glproud" && <MedicalNotice />}
@@ -371,6 +434,7 @@ export function CategoryView({
           {filtered.length} {filtered.length === 1 ? "story" : "stories"}
           {topic ? ` · ${topic}` : ""}
         </p>
+        <h2 className="sr-only">{category.name} stories</h2>
         <div className="story-grid three">
           {filtered.map((a) => (
             <StoryCard key={a.slug} article={a} categoryName={category.name} />
@@ -388,6 +452,12 @@ export function CategoryView({
     </>
   );
 }
+function linkLabel(path: string, data: SiteData) {
+  const article = data.articles.find((item) => articleUrl(item) === path);
+  if (article) return article.title;
+  const section = data.categories.find((item) => `/${item.slug}` === path);
+  return section?.name ?? path;
+}
 export function ArticleView({
   article,
   data,
@@ -402,40 +472,135 @@ export function ArticleView({
   const related = article.related
     .map((slug) => data.articles.find((a) => a.slug === slug))
     .filter((a): a is Article => !!a);
+  const quick = article.quickAnswer?.trim();
+  const faq = visibleFaq(article);
+  const reviewer = hasClinicalReviewer(article) ? article.reviewer : undefined;
+  const crumbs = [
+    { name: "Home", path: "/" },
+    {
+      name: category?.name ?? article.category,
+      path: `/${article.category}`,
+    },
+    { name: article.title, path: articleUrl(article) },
+  ];
+  const reading = article.internalLinks
+    .map(normalizePath)
+    .filter((path, index, all) => all.indexOf(path) === index)
+    .filter((path) => path !== articleUrl(article))
+    .map((path) => ({ href: path, label: linkLabel(path, data) }));
+  const guide =
+    article.category === "glproud"
+      ? []
+      : guideArticleSlugs(article.slug)
+          .map((slug) => data.articles.find((item) => item.slug === slug))
+          .filter((item): item is Article => !!item);
+  const config = readSiteConfig();
   return (
     <article>
-      <nav
-        className="page-shell breadcrumbs article-breadcrumb"
-        aria-label="Breadcrumb"
-      >
-        <Link href="/">Home</Link> /{" "}
-        <Link href={`/${article.category}`}>{category?.name}</Link> /{" "}
-        <span>{article.topic}</span>
-      </nav>
+      {!preview && (
+        <>
+          <TrackView
+            event={{
+              name: "article_view",
+              slug: article.slug,
+              category: article.category,
+            }}
+          />
+          {article.category === "glproud" && (
+            <TrackView
+              event={{
+                name: "glp1_guide_engagement",
+                slug: article.slug,
+                surface: "article",
+              }}
+            />
+          )}
+          <JsonLd
+            data={articleStructuredData(
+              article,
+              author,
+              config,
+              category?.name,
+            )}
+          />
+          {faq.length > 0 && <JsonLd data={faqStructuredData(faq)} />}
+        </>
+      )}
+      <Breadcrumbs className="article-breadcrumb" items={crumbs} />
       <header className="article-head">
         <span className="kicker">
           {category?.name} · {article.topic}
         </span>
         <h1>{article.title}</h1>
+        {quick && (
+          <aside className="quick-answer" aria-label="Quick answer">
+            <h2>Quick answer</h2>
+            <p>{quick}</p>
+          </aside>
+        )}
         <p>{article.dek}</p>
-        <div className="meta">
-          By {author?.name ?? "SUGARMENU Editors"} · {readingMinutes(article)}{" "}
-          min read
-          {article.publishedAt && (
-            <>
-              {" "}
-              ·{" "}
-              <time dateTime={article.publishedAt}>{article.publishedAt}</time>
-            </>
+        <div className="meta byline">
+          By{" "}
+          {author ? (
+            <Link href={`/authors/${author.slug}`}>{author.name}</Link>
+          ) : (
+            "SUGARMENU Editors"
           )}
+          {" · "}
+          {readingMinutes(article)} min read
         </div>
+        <p className="meta dates">
+          Published{" "}
+          {article.publishedAt ? (
+            <time dateTime={article.publishedAt}>
+              {formatDate(article.publishedAt)}
+            </time>
+          ) : (
+            <span>Not yet published</span>
+          )}
+          {" · "}
+          Updated{" "}
+          {article.updatedAt ? (
+            <time dateTime={article.updatedAt}>
+              {formatDate(article.updatedAt)}
+            </time>
+          ) : (
+            <span>Not yet updated</span>
+          )}
+        </p>
+        {reviewer && (
+          <p className="meta review-line">
+            Medically reviewed by{" "}
+            {reviewer.url && /^https:\/\//.test(reviewer.url) ? (
+              <a href={reviewer.url} rel="noopener noreferrer">
+                {reviewer.name}
+              </a>
+            ) : (
+              reviewer.name
+            )}
+            {reviewer.reviewedAt && (
+              <>
+                {" "}
+                on{" "}
+                <time dateTime={reviewer.reviewedAt}>
+                  {formatDate(reviewer.reviewedAt)}
+                </time>
+              </>
+            )}
+          </p>
+        )}
         <span className="status-badge">
           Original launch draft
           {article.category === "glproud" ? " · Unreviewed" : ""}
         </span>
       </header>
       <figure className="article-photo">
-        <EditorialImage name={article.image} alt={article.alt} eager />
+        <EditorialImage
+          name={article.image}
+          alt={article.alt}
+          eager
+          sizes="(max-width: 1100px) 100vw, 1100px"
+        />
         <figcaption>{article.imageCredit}</figcaption>
       </figure>
       <div className="article-layout">
@@ -470,13 +635,23 @@ export function ArticleView({
               ))}
             </ul>
           </aside>
+          {faq.length > 0 && (
+            <section className="article-faq" aria-label="Questions">
+              {faq.map((item) => (
+                <section key={item.question}>
+                  <h2>{item.question}</h2>
+                  <p>{item.answer}</p>
+                </section>
+              ))}
+            </section>
+          )}
           {article.sources.length > 0 && (
             <section className="source-list">
               <h2>Sources & further reading</h2>
               <ul>
                 {article.sources.map((s) => (
                   <li key={s.url}>
-                    <a href={s.url} rel="noreferrer">
+                    <a href={s.url} rel="noopener noreferrer">
                       {s.title}
                     </a>
                   </li>
@@ -484,12 +659,60 @@ export function ArticleView({
               </ul>
             </section>
           )}
+          {reading.length > 0 && (
+            <section className="guide-links">
+              <h2>
+                {article.category === "glproud"
+                  ? "In the GLP-1 Guide"
+                  : "Keep reading"}
+              </h2>
+              <ul>
+                {reading.map((item) => (
+                  <li key={item.href}>
+                    <Link href={item.href}>{item.label}</Link>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+          {guide.length > 0 && (
+            <aside className="guide-links">
+              <h2>From the GLP-1 Guide</h2>
+              <p>
+                GLProud is a separate, unreviewed draft guide. It is general
+                information, not a review of this story and not medical advice.
+              </p>
+              <ul>
+                {guide.map((item) => (
+                  <li key={item.slug}>
+                    <TrackedLink
+                      href={articleUrl(item)}
+                      event={{
+                        name: "glp1_guide_engagement",
+                        slug: item.slug,
+                        surface: "crosslink",
+                      }}
+                    >
+                      {item.title}
+                    </TrackedLink>
+                  </li>
+                ))}
+              </ul>
+            </aside>
+          )}
           <aside className="author-box">
-            <h3>{author?.name ?? "SUGARMENU Editors"}</h3>
+            <h3>
+              {author ? (
+                <Link href={`/authors/${author.slug}`}>{author.name}</Link>
+              ) : (
+                "SUGARMENU Editors"
+              )}
+            </h3>
             <p>
               {author?.bio ??
                 "Original launch drafts from the SUGARMENU editorial preview."}
             </p>
+            {author?.expertise && <p>{author.expertise}</p>}
           </aside>
         </div>
       </div>

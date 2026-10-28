@@ -105,7 +105,7 @@ export function HeroCarousel({
               <EditorialImage
                 name={slide.image}
                 hero
-                eager={i === 0}
+                priority={i === 0}
                 className="hero-photo"
               />
             )}

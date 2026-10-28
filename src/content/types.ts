@@ -5,6 +5,24 @@ export interface Section {
   description: string;
   image: string;
 }
+export interface Author {
+  slug: string;
+  name: string;
+  bio: string;
+  /** Omitted until the team supplies a real expertise statement. */
+  expertise?: string;
+}
+export interface ArticleFaq {
+  question: string;
+  answer: string;
+}
+/** A real person supplied by the team. Never invent one. */
+export interface ClinicalReviewer {
+  name: string;
+  url?: string;
+  credentials?: string;
+  reviewedAt?: string;
+}
 export interface Article {
   slug: string;
   category: string;
@@ -30,6 +48,13 @@ export interface Article {
   featured: boolean;
   trending: boolean;
   reviewStatus?: string;
+  /** Optional 40–60 word direct answer. Omit until editors write it. */
+  quickAnswer?: string;
+  /** Optional visible FAQ. Rendered only when questions and answers exist. */
+  faq?: ArticleFaq[];
+  updatedAt?: string | null;
+  /** GLP-1 Guide only, and only when a real reviewer is on file. */
+  reviewer?: ClinicalReviewer | null;
 }
 export interface HeroSlide {
   eyebrow: string;
@@ -62,7 +87,7 @@ export interface SiteData {
   articles: Article[];
   heroes: HeroSlide[];
   modules: HomeModule[];
-  authors: { slug: string; name: string; bio: string }[];
+  authors: Author[];
   ad: { eyebrow: string; title: string; cta: string; href: string };
   publication: Publication;
 }

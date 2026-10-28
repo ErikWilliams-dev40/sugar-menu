@@ -21,7 +21,9 @@ Open <http://localhost:3000>. No service credentials are needed. All fonts and p
 - Keyboard-accessible navigation/search dialogs, reduced-motion support, responsive photographs, demo signup forms and persistent privacy choices.
 - A browser-local `/studio` with content editing, hero/module ordering, display settings and local signup management. Saved changes appear only at `/studio/preview`; the main site always uses the kit baseline.
 
-This is a **local editorial preview**, not a production service. All supplied articles remain drafts with no invented publication dates. GLProud articles remain unreviewed and carry the medical-development notice. Photography is credited as AI-generated editorial illustration. Demo forms save only in this browser; they do not send email or create accounts. The studio is explicitly unauthenticated and has no publishing capability. All pages remain noindex, and robots.txt disallows crawling.
+This is a **local editorial preview**, not a production service. All supplied articles remain drafts with no invented publication dates. GLProud articles remain unreviewed and carry the medical-development notice. Photography is credited as AI-generated editorial illustration. Demo forms save only in this browser; they do not send email or create accounts. The studio is explicitly unauthenticated and has no publishing capability.
+
+Indexing stays off until launch. `SITE_INDEXABLE=true` together with a canonical `SITE_URL` is the switch for the robots meta tag, `robots.txt`, the sitemap, and `llms.txt`. The default build leaves every page `noindex` and disallows crawling. Set the variables in `.env.example` and rebuild; static pages read them at build time. `AI_CRAWLER_POLICY` is `allow` or `deny` for GPTBot, OAI-SearchBot, PerplexityBot, ClaudeBot, and Google-Extended. When it is unset, those agents follow `SITE_INDEXABLE`. `GOOGLE_SITE_VERIFICATION` is the Search Console token and is omitted when empty.
 
 ## Verification
 
